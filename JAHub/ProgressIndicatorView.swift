@@ -97,8 +97,6 @@ class ProgressIndicatorView: UIView {
 		
 		progressShape.path = UIBezierPath(arcCenter: middle, radius: radius, startAngle: startAt, endAngle: endAt, clockwise: true).cgPath
 		progressShape.frame = bounds
-		
-		print(bounds)
 	}
 	
 	func startAnimating() {

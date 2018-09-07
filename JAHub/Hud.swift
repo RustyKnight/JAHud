@@ -13,20 +13,27 @@ import PureLayout
 public class Hud: UIView {
 	
 	public struct Configuration {
-		var titleColor: UIColor = UIColor.black
-		var textColor: UIColor = UIColor.black
-		var contentBackgroundColor: UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+		public var titleColor: UIColor = UIColor.black
+		public var textColor: UIColor = UIColor.black
 		
-		var progress: ProgressConfiguration = ProgressConfiguration()
+		public var waitIndicatorColor: UIColor = UIColor.black
 		
-		var success: StateConfiguration = StateConfiguration()
-		var fail: StateConfiguration = StateConfiguration()
+		public var contentBackgroundColor: UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+		
+		public var progress: ProgressConfiguration = ProgressConfiguration()
+
+		// Fail and success states
+		public var state: StateConfiguration = StateConfiguration()
+		
+		public init() {}
 	}
 	
 	public struct ProgressConfiguration {
-		var strokeColor: UIColor = .black
-		var strokeWidth: CGFloat = 1
-		var strokeCap: CAShapeLayerLineCap = .round
+		public var strokeColor: UIColor = .black
+		public var strokeWidth: CGFloat = 1
+		public var strokeCap: CAShapeLayerLineCap = .round
+		
+		public init() {}
 	}
 	
 	public enum FillStyle {
@@ -35,10 +42,10 @@ public class Hud: UIView {
 	}
 	
 	public struct StateConfiguration {
-		var color: UIColor = .black
-		var fillStyle: FillStyle = .outlined
+		public var color: UIColor = .black
+		public var fillStyle: FillStyle = .outlined
 	}
-
+	
 	public enum Style {
 		case infiniteWait
 		case progress
@@ -52,15 +59,41 @@ public class Hud: UIView {
 	
 	internal var configuration: Configuration? {
 		didSet {
-			updateStateImages()
+			configurationDidChange()
 		}
 	}
+	
 	// Helper to make it easier to determine which configuration to use
 	internal var activeConfiguration: Configuration {
 		guard let config = configuration else {
 			return Hud.defaultConfiguration
 		}
 		return config
+	}
+	
+	public typealias HudThen = () -> Void
+	
+	public private(set) var style: Style = .infiniteWait
+	
+	public func set(_ style: Style, then: HudThen? = nil) {
+		self.style = style
+		styleDidChange(then: then)
+	}
+	
+	public var title: String? {
+		didSet {
+			titleLabel.text = title
+			titleLabel.isHidden = title == nil || title?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0
+			layoutIfNeeded()
+		}
+	}
+	
+	public var text: String? {
+		didSet {
+			textLabel.text = text
+			textLabel.isHidden = text == nil || text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0
+			layoutIfNeeded()
+		}
 	}
 	
 	public override init(frame: CGRect) {
@@ -95,16 +128,19 @@ public class Hud: UIView {
 		return InfiniteWaitIndicatorView()
 	}()
 	
+	// The progress indicator
 	internal lazy var progressIndicatorView: ProgressIndicatorView = {
 		return ProgressIndicatorView()
 	}()
 	
+	// The success view
 	internal lazy var successView: UIImageView = {
 		let view = UIImageView(image: successImage)
 		view.contentMode = .scaleAspectFit
 		return view
 	}()
-
+	
+	// The fail view
 	internal lazy var failView: UIImageView = {
 		let view = UIImageView(image: failImage)
 		view.contentMode = .scaleAspectFit
@@ -112,24 +148,23 @@ public class Hud: UIView {
 	}()
 	
 	internal var successImage: UIImage {
-		switch activeConfiguration.success.fillStyle {
-		case .outlined: return JAHubStyleKit.imageOfSuccessOutlined(fillColor: activeConfiguration.success.color)
-		case .filled: return JAHubStyleKit.imageOfSuccessFilled(fillColor: activeConfiguration.success.color)
+		switch activeConfiguration.state.fillStyle {
+		case .outlined: return JAHubStyleKit.imageOfSuccessOutlined(fillColor: activeConfiguration.state.color)
+		case .filled: return JAHubStyleKit.imageOfSuccessFilled(fillColor: activeConfiguration.state.color)
 		}
 	}
 	
 	internal var failImage: UIImage {
-		switch activeConfiguration.success.fillStyle {
-		case .outlined: return JAHubStyleKit.imageOfFailOutlined(fillColor: activeConfiguration.success.color)
-		case .filled: return JAHubStyleKit.imageOfFailFilled(fillColor: activeConfiguration.success.color)
+		switch activeConfiguration.state.fillStyle {
+		case .outlined: return JAHubStyleKit.imageOfFailOutlined(fillColor: activeConfiguration.state.color)
+		case .filled: return JAHubStyleKit.imageOfFailFilled(fillColor: activeConfiguration.state.color)
 		}
 	}
-
+	
 	// The core content, the text surrounds this, it appears
 	// in the middle and contains all the different state
 	// views
 	internal lazy var contentView: UIView = {
-		print("ContentView")
 		let contentView = UIView(forAutoLayout: ())
 		infiniteWaitIndicatorView.stopAnimating()
 		
@@ -138,8 +173,6 @@ public class Hud: UIView {
 			view.configureForAutoLayout()
 			contentView.addSubview(view)
 			
-			view.autoSetDimension(.width, toSize: 40)
-			view.autoSetDimension(.height, toSize: 40)
 			view.autoPinEdgesToSuperviewEdges()
 		}
 		
@@ -148,16 +181,11 @@ public class Hud: UIView {
 		infiniteWaitIndicatorView.autoCenterInSuperview()
 		infiniteWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
 		infiniteWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
-
+		
 		return contentView
 	}()
 	
-	public var style: Style = .infiniteWait {
-		didSet {
-			// Need to know if we should animate the change or not...
-			styleDidChange()
-		}
-	}
+	internal static let defaultContentSize: CGFloat = 50
 	
 	internal lazy var titleLabel: UILabel = {
 		let label = UILabel()
@@ -165,7 +193,7 @@ public class Hud: UIView {
 		label.numberOfLines = 0
 		return label
 	}()
-
+	
 	internal lazy var textLabel: UILabel = {
 		let label = UILabel()
 		label.textAlignment = .center
@@ -173,22 +201,6 @@ public class Hud: UIView {
 		return label
 	}()
 	
-	public var title: String? {
-		didSet {
-			titleLabel.text = title
-			titleLabel.isHidden = title == nil || title?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0
-			layoutIfNeeded()
-		}
-	}
-	
-	public var text: String? {
-		didSet {
-			textLabel.text = text
-			textLabel.isHidden = text == nil || text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0
-			layoutIfNeeded()
-		}
-	}
-
 	internal func commonInit() {
 		backgroundColor = UIColor.clear
 		isOpaque = false
@@ -202,32 +214,56 @@ public class Hud: UIView {
 		stackView.axis = .vertical
 		stackView.spacing = 8
 		stackView.configureForAutoLayout()
-
-//		contentView.autoSetDimension(.width, toSize: 40.0)
-//		contentView.autoSetDimension(.height, toSize: 40.0)
 		
-		backgroundView.addSubview(stackView)
+		contentViewWidthConstraint = contentView.autoSetDimension(.width, toSize: Hud.defaultContentSize)
+		contentViewHeightConstraint = contentView.autoSetDimension(.height, toSize: Hud.defaultContentSize)
 
-		stackView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 16, relation: .greaterThanOrEqual)
-		stackView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 16, relation: .greaterThanOrEqual)
-		stackView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 16, relation: .greaterThanOrEqual)
-		stackView.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 16, relation: .greaterThanOrEqual)
+		backgroundView.addSubview(stackView)
+		
+//		stackView.autoCenterInSuperviewMargins()
+		
+		stackView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 16)
+		stackView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 16)
+		stackView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 16)
+		stackView.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 16)
 
 		blurBackground.contentView.addSubview(backgroundView)
 		backgroundView.autoCenterInSuperview()
 		
+		backgroundView.autoSetDimension(.width, toSize: 250, relation: .lessThanOrEqual)
+
 		// This might need to change for iPads :/
-//		backgroundView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 50.0, relation: .greaterThanOrEqual)
-//		backgroundView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 50.0, relation: .greaterThanOrEqual)
+//		backgroundView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 100, relation: .greaterThanOrEqual)
+//		backgroundView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 100, relation: .greaterThanOrEqual)
 	}
 	
-	internal func updateStateImages() {
+	internal var contentViewWidthConstraint: NSLayoutConstraint!
+	internal var contentViewHeightConstraint: NSLayoutConstraint!
+
+	internal func configurationDidChange() {
+		
+		let config = activeConfiguration
+		
+		contentViewWidthConstraint.constant = Hud.defaultContentSize + config.progress.strokeWidth
+		contentViewHeightConstraint.constant = Hud.defaultContentSize + config.progress.strokeWidth
+		
 		successView.image = successImage
 		failView.image = failImage
+		
+		titleLabel.textColor = config.titleColor
+		textLabel.textColor = config.textColor
+		
+		infiniteWaitIndicatorView.tickColor = config.waitIndicatorColor
+		
+		progressIndicatorView.strokeColor = config.progress.strokeColor
+		progressIndicatorView.strokeCap = config.progress.strokeCap
+		progressIndicatorView.strokeWidth = config.progress.strokeWidth
+		
+		layoutIfNeeded()
 	}
 	
 	// Need to know if we should animate the change or not...
-	internal func styleDidChange() {
+	internal func styleDidChange(then: HudThen? = nil) {
 		guard superview != nil else {
 			infiniteWaitIndicatorView.isHidden = true
 			infiniteWaitIndicatorView.stopAnimating()
@@ -249,10 +285,9 @@ public class Hud: UIView {
 			case .failure: failView.isHidden = false
 			}
 			layoutIfNeeded()
+			then?()
 			return
 		}
-		
-		print("Update style with fashion")
 		
 		let views = [infiniteWaitIndicatorView, progressIndicatorView, successView, failView]
 		var incoming: [UIView] = []
@@ -275,7 +310,7 @@ public class Hud: UIView {
 				incoming.append(failView)
 			}
 		}
-
+		
 		if style == .progress {
 			progressIndicatorView.startAnimating()
 			infiniteWaitIndicatorView.startAnimating()
@@ -289,12 +324,11 @@ public class Hud: UIView {
 		
 		for view in incoming {
 			view.alpha = 0.0
+			view.transform = CGAffineTransform(scaleX: 0, y: 0)
+			view.isHidden = false
 		}
 		
-		print("Incoming = \(incoming)")
-		print("outgoing = \(outgoing)")
-
-		UIView.animate(withDuration: 5.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+		UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
 			for view in incoming {
 				view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
 				view.alpha = 1.0
@@ -305,7 +339,6 @@ public class Hud: UIView {
 			}
 			self.layoutIfNeeded()
 		}) { completed in
-			print("Completed = \(completed)")
 			for view in outgoing {
 				view.isHidden = true
 				// Just in case we need these later :/
@@ -316,9 +349,10 @@ public class Hud: UIView {
 				self.progressIndicatorView.stopAnimating()
 				self.infiniteWaitIndicatorView.stopAnimating()
 			}
+			then?()
 		}
 	}
-
+	
 	// MARK: - Globle accessible functionality
 	
 	private static var registery: [UIView: Hud] = [:]
@@ -327,28 +361,33 @@ public class Hud: UIView {
 															 on parent: UIView,
 															 title: String? = nil,
 															 text: String? = nil,
-															 progress: Progress? = nil) {
-		print("Parent = \(parent)")
-		print("registery = \(registery[parent])")
+															 progress: Progress? = nil,
+															 configuration: Configuration? = nil,
+															 then: HudThen? = nil) {
+		
 		if let hud = registery[parent] {
-			print("Update only")
-			hud.style = style
-			
 			if title != nil && (hud.title == nil || hud.title != title) {
 				hud.title = title
 			}
 			if text != nil && (hud.text == nil || hud.text != text) {
 				hud.text = text
 			}
+			
+			if hud.configuration == nil && configuration != nil {
+				hud.configuration = configuration
+			}
+			
+			hud.set(style, then: then)
 			return
 		}
 		
 		let hud = Hud()
+		hud.configuration = configuration
 		hud.title = title
 		hud.text = text
 		hud.alpha = 0
 		hud.backgroundView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-		hud.style = style
+		hud.set(style)
 		hud.progressIndicatorView.progress = progress
 		
 		registery[parent] = hud
@@ -360,49 +399,68 @@ public class Hud: UIView {
 			hud.backgroundView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
 			hud.alpha = 1.0
 			hud.blurBackground.effect = UIBlurEffect(style: .light)
-		}, completion: nil)
+		}) { completed in
+			then?()
+		}
 	}
 	
 	// MARK: - Present infinite wait
-
-	public static func presentWait(on parent: UIViewController, title: String? = nil, text: String? = nil) {
-		presentWait(on: parent.view, title: title, text: text)
+	
+	public static func presentWait(on parent: UIViewController, title: String? = nil, text: String? = nil,
+																 configuration: Configuration? = nil, then: HudThen? = nil) {
+		presentWait(on: parent.view, title: title, text: text, configuration: configuration, then: then)
 	}
-
-	public static func presentWait(on parent: UIView, title: String? = nil, text: String? = nil) {
-		present(style: .infiniteWait, on: parent, title: title, text: text)
+	
+	public static func presentWait(on parent: UIView, title: String? = nil, text: String? = nil,
+																 configuration: Configuration? = nil, then: HudThen? = nil) {
+		present(style: .infiniteWait, on: parent, title: title, text: text, configuration: configuration, then: then)
 	}
-
+	
 	// MARK: - Present progress
-
-	public static func presentProgress(on controller: UIViewController, progress: Progress, title: String? = nil, text: String? = nil) {
-		presentProgress(on: controller.view, progress: progress, title: title, text: text)
+	
+	public static func presentProgress(on controller: UIViewController, progress: Progress, title: String? = nil, text: String? = nil,
+																		 configuration: Configuration? = nil, then: HudThen? = nil) {
+		presentProgress(on: controller.view, progress: progress, title: title, text: text, configuration: configuration, then: then)
 	}
-
-	public static func presentProgress(on view: UIView, progress: Progress, title: String? = nil, text: String? = nil) {
-		present(style: .progress, on: view, title: title, text: text, progress: progress)
+	
+	public static func presentProgress(on view: UIView, progress: Progress, title: String? = nil, text: String? = nil,
+																		 configuration: Configuration? = nil, then: HudThen? = nil) {
+		present(style: .progress, on: view, title: title, text: text, progress: progress, configuration: configuration, then: then)
 	}
-
+	
 	// MARK: - Present success
 	
-	public static func presentSuccess(on controller: UIViewController, title: String? = nil, text: String? = nil) {
-		presentSuccess(on: controller.view, title: title, text: text)
+	public static func presentSuccess(on controller: UIViewController, title: String? = nil, text: String? = nil,
+																		configuration: Configuration? = nil, then: HudThen? = nil) {
+		presentSuccess(on: controller.view, title: title, text: text, configuration: configuration, then: then)
 	}
 	
-	public static func presentSuccess(on view: UIView, title: String? = nil, text: String? = nil) {
-		present(style: .success, on: view, title: title, text: text)
+	public static func presentSuccess(on view: UIView, title: String? = nil, text: String? = nil,
+																		configuration: Configuration? = nil, then: HudThen? = nil) {
+		present(style: .success, on: view, title: title, text: text, configuration: configuration, then: then)
+	}
+	
+	// MARK: - Present success
+	
+	public static func presentFailure(on controller: UIViewController, title: String? = nil, text: String? = nil,
+																	 configuration: Configuration? = nil, then: HudThen? = nil) {
+		presentFailure(on: controller.view, title: title, text: text, configuration: configuration, then: then)
+	}
+	
+	public static func presentFailure(on view: UIView, title: String? = nil, text: String? = nil,
+																	 configuration: Configuration? = nil, then: HudThen? = nil) {
+		present(style: .failure, on: view, title: title, text: text, configuration: configuration, then: then)
 	}
 	
 	// MARK: - Dismiss
-
-	public typealias HudDismissed = () -> Void
 	
-	public static func dismiss(from parent: UIViewController, then: HudDismissed? = nil) {
+	public static func dismiss(from parent: UIViewController, then: HudThen? = nil) {
 		dismiss(from: parent.view, then: then)
 	}
 	
-	public static func dismiss(from parent: UIView, then: HudDismissed? = nil) {
+	public static func dismiss(from parent: UIView, then: HudThen? = nil) {
 		guard let hud = registery[parent] else {
+			then?()
 			return
 		}
 		hud.layer.removeAllAnimations()
@@ -412,8 +470,9 @@ public class Hud: UIView {
 		}) { (completed) in
 			hud.removeFromSuperview()
 			registery[parent] = nil
+			then?()
 		}
 	}
-
-
+	
+	
 }
