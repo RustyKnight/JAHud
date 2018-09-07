@@ -16,8 +16,8 @@
 		1291E5602141DA660057DA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1291E55E2141DA660057DA82 /* LaunchScreen.storyboard */; };
 		1291E56B2141DA660057DA82 /* JAHubExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E56A2141DA660057DA82 /* JAHubExampleTests.swift */; };
 		1291E5762141DA660057DA82 /* JAHubExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */; };
-		1291E5982141F7090057DA82 /* JAHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1291E5972141F7090057DA82 /* JAHub.framework */; };
-		1291E5992141F7090057DA82 /* JAHub.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1291E5972141F7090057DA82 /* JAHub.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		70748AFE214344CD00C04F2C /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; };
+		70748AFF214344CD00C04F2C /* JAHud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				125A56FF2142304700F241FA /* PureLayout.framework in Embed Frameworks */,
-				1291E5992141F7090057DA82 /* JAHub.framework in Embed Frameworks */,
+				70748AFF214344CD00C04F2C /* JAHud.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,20 +54,20 @@
 
 /* Begin PBXFileReference section */
 		125A56FD2142304700F241FA /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = ../Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
-		1291E5522141DA650057DA82 /* JAHubExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAHubExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1291E5522141DA650057DA82 /* JAHudExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAHudExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1291E5552141DA650057DA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1291E5572141DA650057DA82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1291E55A2141DA650057DA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1291E55C2141DA660057DA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1291E55F2141DA660057DA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1291E5612141DA660057DA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1291E5662141DA660057DA82 /* JAHubExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHubExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1291E5662141DA660057DA82 /* JAHudExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHudExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1291E56A2141DA660057DA82 /* JAHubExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubExampleTests.swift; sourceTree = "<group>"; };
 		1291E56C2141DA660057DA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1291E5712141DA660057DA82 /* JAHubExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHubExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1291E5712141DA660057DA82 /* JAHudExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHudExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubExampleUITests.swift; sourceTree = "<group>"; };
 		1291E5772141DA660057DA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1291E5972141F7090057DA82 /* JAHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JAHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70748AFD214344CD00C04F2C /* JAHud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JAHud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				125A56FE2142304700F241FA /* PureLayout.framework in Frameworks */,
-				1291E5982141F7090057DA82 /* JAHub.framework in Frameworks */,
+				70748AFE214344CD00C04F2C /* JAHud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,11 +100,11 @@
 		1291E5492141DA650057DA82 = {
 			isa = PBXGroup;
 			children = (
+				70748AFD214344CD00C04F2C /* JAHud.framework */,
 				125A56FD2142304700F241FA /* PureLayout.framework */,
-				1291E5972141F7090057DA82 /* JAHub.framework */,
-				1291E5542141DA650057DA82 /* JAHubExample */,
-				1291E5692141DA660057DA82 /* JAHubExampleTests */,
-				1291E5742141DA660057DA82 /* JAHubExampleUITests */,
+				1291E5542141DA650057DA82 /* JAHudExample */,
+				1291E5692141DA660057DA82 /* JAHudExampleTests */,
+				1291E5742141DA660057DA82 /* JAHudExampleUITests */,
 				1291E5532141DA650057DA82 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,14 +112,14 @@
 		1291E5532141DA650057DA82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1291E5522141DA650057DA82 /* JAHubExample.app */,
-				1291E5662141DA660057DA82 /* JAHubExampleTests.xctest */,
-				1291E5712141DA660057DA82 /* JAHubExampleUITests.xctest */,
+				1291E5522141DA650057DA82 /* JAHudExample.app */,
+				1291E5662141DA660057DA82 /* JAHudExampleTests.xctest */,
+				1291E5712141DA660057DA82 /* JAHudExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1291E5542141DA650057DA82 /* JAHubExample */ = {
+		1291E5542141DA650057DA82 /* JAHudExample */ = {
 			isa = PBXGroup;
 			children = (
 				1291E5552141DA650057DA82 /* AppDelegate.swift */,
@@ -129,33 +129,33 @@
 				1291E55E2141DA660057DA82 /* LaunchScreen.storyboard */,
 				1291E5612141DA660057DA82 /* Info.plist */,
 			);
-			path = JAHubExample;
+			path = JAHudExample;
 			sourceTree = "<group>";
 		};
-		1291E5692141DA660057DA82 /* JAHubExampleTests */ = {
+		1291E5692141DA660057DA82 /* JAHudExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				1291E56A2141DA660057DA82 /* JAHubExampleTests.swift */,
 				1291E56C2141DA660057DA82 /* Info.plist */,
 			);
-			path = JAHubExampleTests;
+			path = JAHudExampleTests;
 			sourceTree = "<group>";
 		};
-		1291E5742141DA660057DA82 /* JAHubExampleUITests */ = {
+		1291E5742141DA660057DA82 /* JAHudExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
 				1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */,
 				1291E5772141DA660057DA82 /* Info.plist */,
 			);
-			path = JAHubExampleUITests;
+			path = JAHudExampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1291E5512141DA650057DA82 /* JAHubExample */ = {
+		1291E5512141DA650057DA82 /* JAHudExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1291E57A2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHubExample" */;
+			buildConfigurationList = 1291E57A2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHudExample" */;
 			buildPhases = (
 				1291E54E2141DA650057DA82 /* Sources */,
 				1291E54F2141DA650057DA82 /* Frameworks */,
@@ -166,14 +166,14 @@
 			);
 			dependencies = (
 			);
-			name = JAHubExample;
+			name = JAHudExample;
 			productName = JAHubExample;
-			productReference = 1291E5522141DA650057DA82 /* JAHubExample.app */;
+			productReference = 1291E5522141DA650057DA82 /* JAHudExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1291E5652141DA660057DA82 /* JAHubExampleTests */ = {
+		1291E5652141DA660057DA82 /* JAHudExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1291E57D2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHubExampleTests" */;
+			buildConfigurationList = 1291E57D2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHudExampleTests" */;
 			buildPhases = (
 				1291E5622141DA660057DA82 /* Sources */,
 				1291E5632141DA660057DA82 /* Frameworks */,
@@ -184,14 +184,14 @@
 			dependencies = (
 				1291E5682141DA660057DA82 /* PBXTargetDependency */,
 			);
-			name = JAHubExampleTests;
+			name = JAHudExampleTests;
 			productName = JAHubExampleTests;
-			productReference = 1291E5662141DA660057DA82 /* JAHubExampleTests.xctest */;
+			productReference = 1291E5662141DA660057DA82 /* JAHudExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1291E5702141DA660057DA82 /* JAHubExampleUITests */ = {
+		1291E5702141DA660057DA82 /* JAHudExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1291E5802141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHubExampleUITests" */;
+			buildConfigurationList = 1291E5802141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHudExampleUITests" */;
 			buildPhases = (
 				1291E56D2141DA660057DA82 /* Sources */,
 				1291E56E2141DA660057DA82 /* Frameworks */,
@@ -202,9 +202,9 @@
 			dependencies = (
 				1291E5732141DA660057DA82 /* PBXTargetDependency */,
 			);
-			name = JAHubExampleUITests;
+			name = JAHudExampleUITests;
 			productName = JAHubExampleUITests;
-			productReference = 1291E5712141DA660057DA82 /* JAHubExampleUITests.xctest */;
+			productReference = 1291E5712141DA660057DA82 /* JAHudExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1291E54D2141DA650057DA82 /* Build configuration list for PBXProject "JAHubExample" */;
+			buildConfigurationList = 1291E54D2141DA650057DA82 /* Build configuration list for PBXProject "JAHudExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -243,9 +243,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1291E5512141DA650057DA82 /* JAHubExample */,
-				1291E5652141DA660057DA82 /* JAHubExampleTests */,
-				1291E5702141DA660057DA82 /* JAHubExampleUITests */,
+				1291E5512141DA650057DA82 /* JAHudExample */,
+				1291E5652141DA660057DA82 /* JAHudExampleTests */,
+				1291E5702141DA660057DA82 /* JAHudExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,12 +308,12 @@
 /* Begin PBXTargetDependency section */
 		1291E5682141DA660057DA82 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1291E5512141DA650057DA82 /* JAHubExample */;
+			target = 1291E5512141DA650057DA82 /* JAHudExample */;
 			targetProxy = 1291E5672141DA660057DA82 /* PBXContainerItemProxy */;
 		};
 		1291E5732141DA660057DA82 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1291E5512141DA650057DA82 /* JAHubExample */;
+			target = 1291E5512141DA650057DA82 /* JAHudExample */;
 			targetProxy = 1291E5722141DA660057DA82 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -461,7 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YWXH886EY3;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
-				INFOPLIST_FILE = JAHubExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JAHudExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YWXH886EY3;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
-				INFOPLIST_FILE = JAHubExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JAHudExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,7 +500,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZY5273WP;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				INFOPLIST_FILE = JAHubExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,7 +521,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZY5273WP;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				INFOPLIST_FILE = JAHubExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,7 +541,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZY5273WP;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				INFOPLIST_FILE = JAHubExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,7 +561,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZY5273WP;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				INFOPLIST_FILE = JAHubExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,7 +579,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1291E54D2141DA650057DA82 /* Build configuration list for PBXProject "JAHubExample" */ = {
+		1291E54D2141DA650057DA82 /* Build configuration list for PBXProject "JAHudExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1291E5782141DA660057DA82 /* Debug */,
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1291E57A2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHubExample" */ = {
+		1291E57A2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHudExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1291E57B2141DA660057DA82 /* Debug */,
@@ -597,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1291E57D2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHubExampleTests" */ = {
+		1291E57D2141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHudExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1291E57E2141DA660057DA82 /* Debug */,
@@ -606,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1291E5802141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHubExampleUITests" */ = {
+		1291E5802141DA660057DA82 /* Build configuration list for PBXNativeTarget "JAHudExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1291E5812141DA660057DA82 /* Debug */,

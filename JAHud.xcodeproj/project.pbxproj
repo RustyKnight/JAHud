@@ -13,9 +13,9 @@
 		1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E59E2142032E0057DA82 /* Number+Radians.swift */; };
 		1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A1214211470057DA82 /* JAHubStyleKit.swift */; };
 		1291E5A42142118A0057DA82 /* InfiniteWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */; };
-		12FF218E2141D9E000313955 /* JAHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FF21842141D9E000313955 /* JAHub.framework */; };
+		12FF218E2141D9E000313955 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FF21842141D9E000313955 /* JAHud.framework */; };
 		12FF21932141D9E000313955 /* JAHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF21922141D9E000313955 /* JAHubTests.swift */; };
-		12FF21952141D9E000313955 /* JAHub.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12FF21952141D9E000313955 /* JAHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +34,10 @@
 		1291E59E2142032E0057DA82 /* Number+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Radians.swift"; sourceTree = "<group>"; };
 		1291E5A1214211470057DA82 /* JAHubStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAHubStyleKit.swift; sourceTree = "<group>"; };
 		1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteWaitIndicatorView.swift; sourceTree = "<group>"; };
-		12FF21842141D9E000313955 /* JAHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JAHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		12FF21872141D9E000313955 /* JAHub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JAHub.h; sourceTree = "<group>"; };
+		12FF21842141D9E000313955 /* JAHud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JAHud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12FF21872141D9E000313955 /* JAHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JAHud.h; sourceTree = "<group>"; };
 		12FF21882141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12FF218D2141D9E000313955 /* JAHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12FF218D2141D9E000313955 /* JAHudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FF21922141D9E000313955 /* JAHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubTests.swift; sourceTree = "<group>"; };
 		12FF21942141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12FF219E2141DA0500313955 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12FF218E2141D9E000313955 /* JAHub.framework in Frameworks */,
+				12FF218E2141D9E000313955 /* JAHud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +90,8 @@
 		12FF217A2141D9E000313955 = {
 			isa = PBXGroup;
 			children = (
-				12FF21862141D9E000313955 /* JAHub */,
-				12FF21912141D9E000313955 /* JAHubTests */,
+				12FF21862141D9E000313955 /* JAHud */,
+				12FF21912141D9E000313955 /* JAHudTests */,
 				12FF21852141D9E000313955 /* Products */,
 				1291E5922141DD520057DA82 /* Frameworks */,
 			);
@@ -100,33 +100,33 @@
 		12FF21852141D9E000313955 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				12FF21842141D9E000313955 /* JAHub.framework */,
-				12FF218D2141D9E000313955 /* JAHubTests.xctest */,
+				12FF21842141D9E000313955 /* JAHud.framework */,
+				12FF218D2141D9E000313955 /* JAHudTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		12FF21862141D9E000313955 /* JAHub */ = {
+		12FF21862141D9E000313955 /* JAHud */ = {
 			isa = PBXGroup;
 			children = (
 				1291E5A0214211470057DA82 /* StyleKits */,
 				1291E59D214203140057DA82 /* Extensions */,
 				12FF219E2141DA0500313955 /* Hud.swift */,
-				12FF21872141D9E000313955 /* JAHub.h */,
+				12FF21872141D9E000313955 /* JAHud.h */,
 				12FF21882141D9E000313955 /* Info.plist */,
 				1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */,
 				1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */,
 			);
-			path = JAHub;
+			path = JAHud;
 			sourceTree = "<group>";
 		};
-		12FF21912141D9E000313955 /* JAHubTests */ = {
+		12FF21912141D9E000313955 /* JAHudTests */ = {
 			isa = PBXGroup;
 			children = (
 				12FF21922141D9E000313955 /* JAHubTests.swift */,
 				12FF21942141D9E000313955 /* Info.plist */,
 			);
-			path = JAHubTests;
+			path = JAHudTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,16 +136,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12FF21952141D9E000313955 /* JAHub.h in Headers */,
+				12FF21952141D9E000313955 /* JAHud.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		12FF21832141D9E000313955 /* JAHub */ = {
+		12FF21832141D9E000313955 /* JAHud */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 12FF21982141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHub" */;
+			buildConfigurationList = 12FF21982141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHud" */;
 			buildPhases = (
 				12FF217F2141D9E000313955 /* Headers */,
 				12FF21802141D9E000313955 /* Sources */,
@@ -156,14 +156,14 @@
 			);
 			dependencies = (
 			);
-			name = JAHub;
+			name = JAHud;
 			productName = JAHub;
-			productReference = 12FF21842141D9E000313955 /* JAHub.framework */;
+			productReference = 12FF21842141D9E000313955 /* JAHud.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		12FF218C2141D9E000313955 /* JAHubTests */ = {
+		12FF218C2141D9E000313955 /* JAHudTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHubTests" */;
+			buildConfigurationList = 12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHudTests" */;
 			buildPhases = (
 				12FF21892141D9E000313955 /* Sources */,
 				12FF218A2141D9E000313955 /* Frameworks */,
@@ -174,9 +174,9 @@
 			dependencies = (
 				12FF21902141D9E000313955 /* PBXTargetDependency */,
 			);
-			name = JAHubTests;
+			name = JAHudTests;
 			productName = JAHubTests;
-			productReference = 12FF218D2141D9E000313955 /* JAHubTests.xctest */;
+			productReference = 12FF218D2141D9E000313955 /* JAHudTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -197,7 +197,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 12FF217E2141D9E000313955 /* Build configuration list for PBXProject "JAHub" */;
+			buildConfigurationList = 12FF217E2141D9E000313955 /* Build configuration list for PBXProject "JAHud" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -209,8 +209,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				12FF21832141D9E000313955 /* JAHub */,
-				12FF218C2141D9E000313955 /* JAHubTests */,
+				12FF21832141D9E000313955 /* JAHud */,
+				12FF218C2141D9E000313955 /* JAHudTests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,7 +258,7 @@
 /* Begin PBXTargetDependency section */
 		12FF21902141D9E000313955 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 12FF21832141D9E000313955 /* JAHub */;
+			target = 12FF21832141D9E000313955 /* JAHud */;
 			targetProxy = 12FF218F2141D9E000313955 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -400,7 +400,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = JAHub/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JAHud/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -429,7 +429,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = JAHub/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JAHud/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,7 +449,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZY5273WP;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				INFOPLIST_FILE = JAHubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,7 +468,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZY5273WP;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				INFOPLIST_FILE = JAHubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,7 +485,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		12FF217E2141D9E000313955 /* Build configuration list for PBXProject "JAHub" */ = {
+		12FF217E2141D9E000313955 /* Build configuration list for PBXProject "JAHud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12FF21962141D9E000313955 /* Debug */,
@@ -494,7 +494,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		12FF21982141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHub" */ = {
+		12FF21982141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12FF21992141D9E000313955 /* Debug */,
@@ -503,7 +503,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHubTests" */ = {
+		12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHudTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12FF219C2141D9E000313955 /* Debug */,

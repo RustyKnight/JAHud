@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JAHub
+import JAHud
 
 class ViewController: UIViewController {
 
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 		Hud.presentProgress(on: self, progress: progress, title: "All your base are belong to us", text: "So there", configuration: config) {
 			DispatchQueue.global(qos: .userInitiated).async {
 				while self.progress.fractionCompleted < 1.0 {
-					Thread.sleep(forTimeInterval: 0.5)//Double.random(in: 1.0...5.0))
+					Thread.sleep(forTimeInterval: Double.random(in: 1.0...5.0))
 					let amount = Int.random(in: 5...10)
 					let value = min(100, self.progress.completedUnitCount + Int64(amount))
 					self.progress.completedUnitCount += value

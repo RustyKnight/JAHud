@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:JAHub.xcodeproj">
+      location = "group:JAHud.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:JAHubExample/JAHubExample.xcodeproj">
+      location = "group:JAHudExample/JAHudExample.xcodeproj">
    </FileRef>
 </Workspace>

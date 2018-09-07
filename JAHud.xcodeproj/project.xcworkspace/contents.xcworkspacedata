@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:JAHubExample.xcodeproj">
+      location = "self:/Volumes/Big Fat Extension/DevWork/xcode/production/ShoutOut/JAHub/JAHud.xcodeproj">
    </FileRef>
 </Workspace>
