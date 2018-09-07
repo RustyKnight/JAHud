@@ -17,26 +17,26 @@ The project is also a learning exercise in building, implementing and managing c
 One feature I really like, is the ability to provide a "completion" handler with the presentation and dismissal phases
 
 ~~~~
-		progress.completedUnitCount = 0
-		var config = Hud.Configuration()
-		config.progress.strokeWidth = 3.0
-		config.state.fillStyle = .filled
-		Hud.presentProgress(on: self, progress: progress, title: "All your base are belong to us", text: "So there", configuration: config) {
-			DispatchQueue.global(qos: .userInitiated).async {
-				while self.progress.fractionCompleted < 1.0 {
-					Thread.sleep(forTimeInterval: 0.5)//Double.random(in: 1.0...5.0))
-					let amount = Int.random(in: 5...10)
-					let value = min(100, self.progress.completedUnitCount + Int64(amount))
-					self.progress.completedUnitCount += value
-				}
-				Thread.sleep(forTimeInterval: 1.0)
-				DispatchQueue.main.async {
-					Hud.presentSuccess(on: self) {
-						Hud.dismiss(from: self)
-					}
-				}
+progress.completedUnitCount = 0
+var config = Hud.Configuration()
+config.progress.strokeWidth = 3.0
+config.state.fillStyle = .filled
+Hud.presentProgress(on: self, progress: progress, title: "All your base are belong to us", text: "So there", configuration: config) {
+	DispatchQueue.global(qos: .userInitiated).async {
+		while self.progress.fractionCompleted < 1.0 {
+			Thread.sleep(forTimeInterval: 0.5)//Double.random(in: 1.0...5.0))
+			let amount = Int.random(in: 5...10)
+			let value = min(100, self.progress.completedUnitCount + Int64(amount))
+			self.progress.completedUnitCount += value
+		}
+		Thread.sleep(forTimeInterval: 1.0)
+		DispatchQueue.main.async {
+			Hud.presentSuccess(on: self) {
+				Hud.dismiss(from: self)
 			}
 		}
+	}
+}
 ~~~~
 
 Basically these are called AFTER the animation effects have completed, meaning you don't need to try and "guess" when the Hud's animation has completed, espically helpful when switch states
