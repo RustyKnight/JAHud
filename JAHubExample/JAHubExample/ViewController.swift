@@ -32,7 +32,8 @@ class ViewController: UIViewController {
 			Thread.sleep(forTimeInterval: 1.0)
 			
 			DispatchQueue.main.async {
-				Hud.dismiss(from: self)
+//				Hud.dismiss(from: self)
+				Hud.presentSuccess(on: self)
 			}
 		}
 	}
