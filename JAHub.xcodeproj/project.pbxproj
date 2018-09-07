@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1291E5912141DB8D0057DA82 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF219E2141DA0500313955 /* Hud.swift */; };
+		1291E5942141DD520057DA82 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1291E5932141DD520057DA82 /* PureLayout.framework */; };
+		1291E5962141E1840057DA82 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */; };
+		1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E59E2142032E0057DA82 /* Number+Radians.swift */; };
+		1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A1214211470057DA82 /* JAHubStyleKit.swift */; };
+		1291E5A42142118A0057DA82 /* InfiniteWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */; };
+		12FF218E2141D9E000313955 /* JAHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FF21842141D9E000313955 /* JAHub.framework */; };
+		12FF21932141D9E000313955 /* JAHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF21922141D9E000313955 /* JAHubTests.swift */; };
+		12FF21952141D9E000313955 /* JAHub.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12FF218F2141D9E000313955 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12FF217B2141D9E000313955 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12FF21832141D9E000313955;
+			remoteInfo = JAHub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1291E5932141DD520057DA82 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
+		1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
+		1291E59E2142032E0057DA82 /* Number+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Radians.swift"; sourceTree = "<group>"; };
+		1291E5A1214211470057DA82 /* JAHubStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAHubStyleKit.swift; sourceTree = "<group>"; };
+		1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteWaitIndicatorView.swift; sourceTree = "<group>"; };
+		12FF21842141D9E000313955 /* JAHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JAHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12FF21872141D9E000313955 /* JAHub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JAHub.h; sourceTree = "<group>"; };
+		12FF21882141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12FF218D2141D9E000313955 /* JAHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12FF21922141D9E000313955 /* JAHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubTests.swift; sourceTree = "<group>"; };
+		12FF21942141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12FF219E2141DA0500313955 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12FF21812141D9E000313955 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1291E5942141DD520057DA82 /* PureLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12FF218A2141D9E000313955 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12FF218E2141D9E000313955 /* JAHub.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1291E5922141DD520057DA82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1291E5932141DD520057DA82 /* PureLayout.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1291E59D214203140057DA82 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1291E59E2142032E0057DA82 /* Number+Radians.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1291E5A0214211470057DA82 /* StyleKits */ = {
+			isa = PBXGroup;
+			children = (
+				1291E5A1214211470057DA82 /* JAHubStyleKit.swift */,
+			);
+			path = StyleKits;
+			sourceTree = "<group>";
+		};
+		12FF217A2141D9E000313955 = {
+			isa = PBXGroup;
+			children = (
+				12FF21862141D9E000313955 /* JAHub */,
+				12FF21912141D9E000313955 /* JAHubTests */,
+				12FF21852141D9E000313955 /* Products */,
+				1291E5922141DD520057DA82 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		12FF21852141D9E000313955 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12FF21842141D9E000313955 /* JAHub.framework */,
+				12FF218D2141D9E000313955 /* JAHubTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12FF21862141D9E000313955 /* JAHub */ = {
+			isa = PBXGroup;
+			children = (
+				1291E5A0214211470057DA82 /* StyleKits */,
+				1291E59D214203140057DA82 /* Extensions */,
+				12FF219E2141DA0500313955 /* Hud.swift */,
+				12FF21872141D9E000313955 /* JAHub.h */,
+				12FF21882141D9E000313955 /* Info.plist */,
+				1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */,
+				1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */,
+			);
+			path = JAHub;
+			sourceTree = "<group>";
+		};
+		12FF21912141D9E000313955 /* JAHubTests */ = {
+			isa = PBXGroup;
+			children = (
+				12FF21922141D9E000313955 /* JAHubTests.swift */,
+				12FF21942141D9E000313955 /* Info.plist */,
+			);
+			path = JAHubTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		12FF217F2141D9E000313955 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12FF21952141D9E000313955 /* JAHub.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		12FF21832141D9E000313955 /* JAHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12FF21982141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHub" */;
+			buildPhases = (
+				12FF217F2141D9E000313955 /* Headers */,
+				12FF21802141D9E000313955 /* Sources */,
+				12FF21812141D9E000313955 /* Frameworks */,
+				12FF21822141D9E000313955 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JAHub;
+			productName = JAHub;
+			productReference = 12FF21842141D9E000313955 /* JAHub.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		12FF218C2141D9E000313955 /* JAHubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHubTests" */;
+			buildPhases = (
+				12FF21892141D9E000313955 /* Sources */,
+				12FF218A2141D9E000313955 /* Frameworks */,
+				12FF218B2141D9E000313955 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12FF21902141D9E000313955 /* PBXTargetDependency */,
+			);
+			name = JAHubTests;
+			productName = JAHubTests;
+			productReference = 12FF218D2141D9E000313955 /* JAHubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12FF217B2141D9E000313955 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = KaiZen;
+				TargetAttributes = {
+					12FF21832141D9E000313955 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					12FF218C2141D9E000313955 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 12FF217E2141D9E000313955 /* Build configuration list for PBXProject "JAHub" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 12FF217A2141D9E000313955;
+			productRefGroup = 12FF21852141D9E000313955 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12FF21832141D9E000313955 /* JAHub */,
+				12FF218C2141D9E000313955 /* JAHubTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12FF21822141D9E000313955 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12FF218B2141D9E000313955 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12FF21802141D9E000313955 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1291E5A42142118A0057DA82 /* InfiniteWaitIndicatorView.swift in Sources */,
+				1291E5962141E1840057DA82 /* ProgressIndicatorView.swift in Sources */,
+				1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */,
+				1291E5912141DB8D0057DA82 /* Hud.swift in Sources */,
+				1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12FF21892141D9E000313955 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12FF21932141D9E000313955 /* JAHubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12FF21902141D9E000313955 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12FF21832141D9E000313955 /* JAHub */;
+			targetProxy = 12FF218F2141D9E000313955 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12FF21962141D9E000313955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		12FF21972141D9E000313955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		12FF21992141D9E000313955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = JAHub/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHub;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12FF219A2141D9E000313955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = JAHub/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHub;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		12FF219C2141D9E000313955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28ZY5273WP;
+				INFOPLIST_FILE = JAHubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12FF219D2141D9E000313955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28ZY5273WP;
+				INFOPLIST_FILE = JAHubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12FF217E2141D9E000313955 /* Build configuration list for PBXProject "JAHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12FF21962141D9E000313955 /* Debug */,
+				12FF21972141D9E000313955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12FF21982141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12FF21992141D9E000313955 /* Debug */,
+				12FF219A2141D9E000313955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12FF219C2141D9E000313955 /* Debug */,
+				12FF219D2141D9E000313955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12FF217B2141D9E000313955 /* Project object */;
+}
