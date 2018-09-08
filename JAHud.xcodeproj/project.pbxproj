@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1291E5912141DB8D0057DA82 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF219E2141DA0500313955 /* Hud.swift */; };
+		1291E5912141DB8D0057DA82 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF219E2141DA0500313955 /* HudView.swift */; };
 		1291E5942141DD520057DA82 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1291E5932141DD520057DA82 /* PureLayout.framework */; };
 		1291E5962141E1840057DA82 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */; };
 		1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E59E2142032E0057DA82 /* Number+Radians.swift */; };
@@ -16,6 +16,8 @@
 		12FF218E2141D9E000313955 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FF21842141D9E000313955 /* JAHud.framework */; };
 		12FF21932141D9E000313955 /* JAHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF21922141D9E000313955 /* JAHubTests.swift */; };
 		12FF21952141D9E000313955 /* JAHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70748B0121436DCD00C04F2C /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0021436DCD00C04F2C /* Hud.swift */; };
+		70748B0321436FBF00C04F2C /* HudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0221436FBF00C04F2C /* HudViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,9 @@
 		12FF218D2141D9E000313955 /* JAHudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FF21922141D9E000313955 /* JAHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubTests.swift; sourceTree = "<group>"; };
 		12FF21942141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12FF219E2141DA0500313955 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		12FF219E2141DA0500313955 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		70748B0021436DCD00C04F2C /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		70748B0221436FBF00C04F2C /* HudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +115,13 @@
 			children = (
 				1291E5A0214211470057DA82 /* StyleKits */,
 				1291E59D214203140057DA82 /* Extensions */,
-				12FF219E2141DA0500313955 /* Hud.swift */,
+				12FF219E2141DA0500313955 /* HudView.swift */,
 				12FF21872141D9E000313955 /* JAHud.h */,
 				12FF21882141D9E000313955 /* Info.plist */,
 				1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */,
 				1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */,
+				70748B0021436DCD00C04F2C /* Hud.swift */,
+				70748B0221436FBF00C04F2C /* HudViewController.swift */,
 			);
 			path = JAHud;
 			sourceTree = "<group>";
@@ -237,11 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70748B0321436FBF00C04F2C /* HudViewController.swift in Sources */,
 				1291E5A42142118A0057DA82 /* InfiniteWaitIndicatorView.swift in Sources */,
 				1291E5962141E1840057DA82 /* ProgressIndicatorView.swift in Sources */,
 				1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */,
-				1291E5912141DB8D0057DA82 /* Hud.swift in Sources */,
+				1291E5912141DB8D0057DA82 /* HudView.swift in Sources */,
 				1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */,
+				70748B0121436DCD00C04F2C /* Hud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
