@@ -42,7 +42,8 @@ public class Hud: UIView {
 	}
 	
 	public struct StateConfiguration {
-		public var color: UIColor = .black
+		public var successColor: UIColor = .black
+		public var failColor: UIColor = .black
 		public var fillStyle: FillStyle = .outlined
 	}
 	
@@ -149,15 +150,15 @@ public class Hud: UIView {
 	
 	internal var successImage: UIImage {
 		switch activeConfiguration.state.fillStyle {
-		case .outlined: return JAHubStyleKit.imageOfSuccessOutlined(fillColor: activeConfiguration.state.color)
-		case .filled: return JAHubStyleKit.imageOfSuccessFilled(fillColor: activeConfiguration.state.color)
+		case .outlined: return JAHubStyleKit.imageOfSuccessOutlined(fillColor: activeConfiguration.state.successColor)
+		case .filled: return JAHubStyleKit.imageOfSuccessFilled(fillColor: activeConfiguration.state.successColor)
 		}
 	}
 	
 	internal var failImage: UIImage {
 		switch activeConfiguration.state.fillStyle {
-		case .outlined: return JAHubStyleKit.imageOfFailOutlined(fillColor: activeConfiguration.state.color)
-		case .filled: return JAHubStyleKit.imageOfFailFilled(fillColor: activeConfiguration.state.color)
+		case .outlined: return JAHubStyleKit.imageOfFailOutlined(fillColor: activeConfiguration.state.failColor)
+		case .filled: return JAHubStyleKit.imageOfFailFilled(fillColor: activeConfiguration.state.failColor)
 		}
 	}
 	
@@ -243,6 +244,8 @@ public class Hud: UIView {
 	internal func configurationDidChange() {
 		
 		let config = activeConfiguration
+		
+		backgroundView.backgroundColor = config.contentBackgroundColor
 		
 		contentViewWidthConstraint.constant = Hud.defaultContentSize + config.progress.strokeWidth
 		contentViewHeightConstraint.constant = Hud.defaultContentSize + config.progress.strokeWidth
