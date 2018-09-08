@@ -81,10 +81,16 @@ public class HudView: UIView {
 	}()
 	
 	// The default infinite wait indicator
-	internal lazy var infiniteWaitIndicatorView: InfiniteWaitIndicatorView = {
+	internal lazy var tickWaitIndicatorView: InfiniteWaitIndicatorView = {
 		return InfiniteWaitIndicatorView()
 	}()
-	
+
+	internal lazy var materialWaitIndicatorView: MaterialWaitIndicatorView = {
+		let indicator = MaterialWaitIndicatorView()
+		indicator.strokeWidth = 2.0
+		return indicator
+	}()
+
 	// The progress indicator
 	internal lazy var progressIndicatorView: ProgressIndicatorView = {
 		return ProgressIndicatorView()
@@ -123,7 +129,8 @@ public class HudView: UIView {
 	// views
 	internal lazy var contentView: UIView = {
 		let contentView = UIView(forAutoLayout: ())
-		infiniteWaitIndicatorView.stopAnimating()
+		tickWaitIndicatorView.stopAnimating()
+		materialWaitIndicatorView.stopAnimating()
 		
 		for view in [progressIndicatorView, failView, successView] {
 			view.isHidden = false
@@ -133,12 +140,18 @@ public class HudView: UIView {
 			view.autoPinEdgesToSuperviewEdges()
 		}
 		
-		infiniteWaitIndicatorView.configureForAutoLayout()
-		contentView.addSubview(infiniteWaitIndicatorView)
-		infiniteWaitIndicatorView.autoCenterInSuperview()
-		infiniteWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
-		infiniteWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
-		
+		tickWaitIndicatorView.configureForAutoLayout()
+		contentView.addSubview(tickWaitIndicatorView)
+		tickWaitIndicatorView.autoCenterInSuperview()
+		tickWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
+		tickWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
+
+		materialWaitIndicatorView.configureForAutoLayout()
+		contentView.addSubview(materialWaitIndicatorView)
+		materialWaitIndicatorView.autoCenterInSuperview()
+		materialWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
+		materialWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
+
 		return contentView
 	}()
 	
@@ -212,7 +225,8 @@ public class HudView: UIView {
 		titleLabel.textColor = config.titleColor
 		textLabel.textColor = config.textColor
 		
-		infiniteWaitIndicatorView.tickColor = config.waitIndicatorColor
+		tickWaitIndicatorView.tickColor = config.waitIndicatorColor
+		materialWaitIndicatorView.strokeColor = config.waitIndicatorColor
 		
 		progressIndicatorView.strokeColor = config.progress.strokeColor
 		progressIndicatorView.strokeCap = config.progress.strokeCap
@@ -221,11 +235,29 @@ public class HudView: UIView {
 		layoutIfNeeded()
 	}
 	
+	var activeWaitIndicator: AnimatableView {
+		switch activeConfiguration.waitIndicatorStyle {
+		case .iOS: return tickWaitIndicatorView
+		case .material: return materialWaitIndicatorView
+		}
+	}
+	
+	var inactiveWaitIndicator: AnimatableView {
+		switch activeConfiguration.waitIndicatorStyle {
+		case .iOS: return materialWaitIndicatorView
+		case .material: return tickWaitIndicatorView
+		}
+	}
+	
 	// Need to know if we should animate the change or not...
 	internal func styleDidChange(then: Hud.HudThen? = nil) {
 		guard superview != nil else {
-			infiniteWaitIndicatorView.isHidden = true
-			infiniteWaitIndicatorView.stopAnimating()
+			tickWaitIndicatorView.isHidden = true
+			tickWaitIndicatorView.stopAnimating()
+			
+			materialWaitIndicatorView.isHidden = true
+			materialWaitIndicatorView.stopAnimating()
+
 			progressIndicatorView.isHidden = true
 			progressIndicatorView.stopAnimating()
 			
@@ -238,8 +270,8 @@ public class HudView: UIView {
 				progressIndicatorView.startAnimating()
 				fallthrough
 			case .infiniteWait:
-				infiniteWaitIndicatorView.isHidden = false
-				infiniteWaitIndicatorView.startAnimating()
+				activeWaitIndicator.startAnimating()
+				activeWaitIndicator.isHidden = false
 			case .success: successView.isHidden = false
 			case .failure: failView.isHidden = false
 			}
@@ -248,7 +280,7 @@ public class HudView: UIView {
 			return
 		}
 		
-		let views = [infiniteWaitIndicatorView, progressIndicatorView, successView, failView]
+		let views = [activeWaitIndicator, inactiveWaitIndicator, progressIndicatorView, successView, failView]
 		var incoming: [UIView] = []
 		switch style {
 		case .progress:
@@ -257,8 +289,8 @@ public class HudView: UIView {
 			}
 			fallthrough
 		case .infiniteWait:
-			if infiniteWaitIndicatorView.isHidden {
-				incoming.append(infiniteWaitIndicatorView)
+			if activeWaitIndicator.isHidden {
+				incoming.append(activeWaitIndicator)
 			}
 		case .success:
 			if successView.isHidden {
@@ -272,9 +304,9 @@ public class HudView: UIView {
 		
 		if style == .progress {
 			progressIndicatorView.startAnimating()
-			infiniteWaitIndicatorView.startAnimating()
+			activeWaitIndicator.startAnimating()
 		} else if style == .infiniteWait {
-			infiniteWaitIndicatorView.startAnimating()
+			activeWaitIndicator.startAnimating()
 		}
 		
 		let outgoing = views.filter { (view) -> Bool in
@@ -304,9 +336,9 @@ public class HudView: UIView {
 				view.alpha = 1.0
 				view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
 			}
+			self.inactiveWaitIndicator.stopAnimating()
 			if self.style == .success || self.style == .failure {
 				self.progressIndicatorView.stopAnimating()
-				self.infiniteWaitIndicatorView.stopAnimating()
 			}
 			then?()
 		}

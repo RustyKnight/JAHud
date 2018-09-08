@@ -22,6 +22,7 @@ class ViewController: UIViewController {
 		var config = Hud.Configuration()
 		config.progress.strokeWidth = 3.0
 		config.state.fillStyle = .filled
+		config.waitIndicatorStyle = .material
 		
 		Hud.presentProgress(on: self, progress: progress, title: "All your work are belong to us", text: "Please wait...", configuration: config) {
 			DispatchQueue.global(qos: .userInitiated).async {

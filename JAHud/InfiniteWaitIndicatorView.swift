@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-class InfiniteWaitIndicatorView: UIView {
+class InfiniteWaitIndicatorView: AnimatableView {
 	
 	// This is deliberate, as it needs to fit with the reset of the
 	// intention of the API
@@ -58,12 +58,12 @@ class InfiniteWaitIndicatorView: UIView {
 		displayLink.isPaused = true
 	}
 	
-	func startAnimating() {
+	override public func startAnimating() {
 		cycleStartTime = Date()
 		displayLink.isPaused = false
 	}
 	
-	func stopAnimating() {
+	override public func stopAnimating() {
 		displayLink.isPaused = true
 		cycleStartTime = nil
 	}

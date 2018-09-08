@@ -18,7 +18,8 @@ public struct Hud {
 		public var textColor: UIColor = UIColor.black
 		
 		public var waitIndicatorColor: UIColor = UIColor.black
-		
+		public var waitIndicatorStyle: WaitIndicatorStyle = .iOS
+
 		public var contentBackgroundColor: UIColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
 		
 		public var progress: ProgressConfiguration = ProgressConfiguration()
@@ -53,6 +54,11 @@ public struct Hud {
 		case progress
 		case success
 		case failure
+	}
+	
+	public enum WaitIndicatorStyle {
+		case iOS
+		case material
 	}
 	
 	// Simplified presentation styles
@@ -121,7 +127,9 @@ public struct Hud {
 	
 	// MARK: - Present infinite wait
 	
-	public static func presentWait(on parent: UIViewController, title: String? = nil, text: String? = nil,
+	public static func presentWait(on parent: UIViewController,
+																 title: String? = nil,
+																 text: String? = nil,
 																 presentationStyle: PresentationStyle = .overCurrentContext,
 																 configuration: Configuration? = nil, then: HudThen? = nil) {
 		present(style: .infiniteWait,

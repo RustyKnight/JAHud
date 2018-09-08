@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProgressIndicatorView: UIView {
+class ProgressIndicatorView: AnimatableView {
 	
 	internal struct Keys {
 		static let progressAnimation = "Key.progressAnimation"
@@ -99,11 +99,11 @@ class ProgressIndicatorView: UIView {
 		progressShape.frame = bounds
 	}
 	
-	func startAnimating() {
+	override public func startAnimating() {
 		displayLink.isPaused = false
 	}
 	
-	func stopAnimating() {
+	override  public func stopAnimating() {
 		displayLink.isPaused = true
 	}
 	
