@@ -18,7 +18,7 @@ public class Hud: UIView {
 		
 		public var waitIndicatorColor: UIColor = UIColor.black
 		
-		public var contentBackgroundColor: UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+		public var contentBackgroundColor: UIColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
 		
 		public var progress: ProgressConfiguration = ProgressConfiguration()
 
@@ -118,7 +118,7 @@ public class Hud: UIView {
 	// Background of the hub, with rounded corners
 	internal lazy var backgroundView: UIView = {
 		let backgroundView = UIView(forAutoLayout: ())
-		backgroundView.backgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
+		backgroundView.backgroundColor = activeConfiguration.contentBackgroundColor
 		backgroundView.layer.cornerRadius = 20
 		backgroundView.alpha = 0.75
 		return backgroundView
