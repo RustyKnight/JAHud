@@ -261,5 +261,11 @@ public struct Hud {
 //			then?()
 //		}
 //	}
+  
+  public static func dismissAll() {
+    for vc in registery.keys {
+      dismiss(from: vc)
+    }
+  }
 	
 }
