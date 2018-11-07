@@ -47,6 +47,8 @@ public struct Hud {
 		public var successColor: UIColor = .black
 		public var failColor: UIColor = .black
 		public var fillStyle: FillStyle = .outlined
+		
+		public init() {}
 	}
 	
 	public enum Style {
