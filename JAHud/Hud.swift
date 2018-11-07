@@ -77,6 +77,8 @@ public struct Hud {
 		}
 	}
 	
+	public static var configuration: Configuration?
+	
 	public typealias HudThen = () -> Void
 
 	// MARK: - Globle accessible functionality
@@ -113,7 +115,7 @@ public struct Hud {
 		hudController.modalPresentationStyle = presentationStyle.modalStyle
 		
 		let hudView = hudController.hudView
-		hudView.configuration = configuration
+		hudView.configuration = configuration ?? Hud.configuration
 		hudView.title = title
 		hudView.text = text
 		hudView.set(style)
