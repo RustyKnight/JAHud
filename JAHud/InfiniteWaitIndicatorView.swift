@@ -54,7 +54,7 @@ class InfiniteWaitIndicatorView: AnimatableView {
 
 		displayLink = CADisplayLink(target: self, selector: #selector(animationDidUpdate))
 		displayLink.preferredFramesPerSecond = 60
-		displayLink.add(to: .current, forMode: RunLoop.Mode.default)
+		displayLink.add(to: .current, forMode: RunLoop.Mode.common)
 		displayLink.isPaused = true
 	}
 	

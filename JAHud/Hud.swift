@@ -47,6 +47,8 @@ public struct Hud {
 		public var successColor: UIColor = .black
 		public var failColor: UIColor = .black
 		public var fillStyle: FillStyle = .outlined
+		
+		public init() {}
 	}
 	
 	public enum Style {
@@ -74,6 +76,8 @@ public struct Hud {
 			}
 		}
 	}
+	
+	public static var configuration: Configuration?
 	
 	public typealias HudThen = () -> Void
 
@@ -111,7 +115,7 @@ public struct Hud {
 		hudController.modalPresentationStyle = presentationStyle.modalStyle
 		
 		let hudView = hudController.hudView
-		hudView.configuration = configuration
+		hudView.configuration = configuration ?? Hud.configuration
 		hudView.title = title
 		hudView.text = text
 		hudView.set(style)
