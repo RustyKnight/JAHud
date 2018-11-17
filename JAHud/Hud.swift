@@ -27,7 +27,37 @@ public struct Hud {
 		// Fail and success states
 		public var state: StateConfiguration = StateConfiguration()
 		
-		public init() {}
+		public var mode: Mode {
+			didSet {
+				switch mode {
+				case .light:
+					titleColor = .black
+					textColor = .black
+					waitIndicatorColor = .black
+					contentBackgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
+					progress.strokeColor = .black
+					state.successColor = .black
+					state.failColor = .black
+				case .dark:
+					titleColor = .white
+					textColor = .white
+					waitIndicatorColor = .white
+					contentBackgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 0.75)
+					progress.strokeColor = .white
+					state.successColor = .white
+					state.failColor = .white
+				}
+			}
+		}
+		
+		public init() {
+			mode = .light
+		}
+	}
+	
+	public enum Mode {
+		case light
+		case dark
 	}
 	
 	public struct ProgressConfiguration {

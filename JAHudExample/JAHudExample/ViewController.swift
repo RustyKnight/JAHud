@@ -48,6 +48,15 @@ class ViewController: UIViewController {
 		}
 	}
 
+	@IBAction func makeItDarkMode(_ sender: Any) {
+		progress.completedUnitCount = 0
+		var config = Hud.Configuration()
+		config.progress.strokeWidth = 3.0
+		config.mode = .dark
+		
+		makeItShow(config, fail: false)
+	}
+
 	@IBAction func makeItMaterial(_ sender: Any) {
 		progress.completedUnitCount = 0
 		var config = Hud.Configuration()

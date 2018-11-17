@@ -174,7 +174,9 @@ public class HudView: UIView {
 	internal func commonInit() {
 		backgroundColor = UIColor.clear
 		isOpaque = false
+		
 		blurBackground = UIVisualEffectView()
+		blurBackground.effect = UIBlurEffect(style: .light)
 		addSubview(blurBackground)
 		blurBackground.autoPinEdgesToSuperviewEdges()
 		
@@ -213,6 +215,13 @@ public class HudView: UIView {
 	internal func configurationDidChange() {
 		
 		let config = activeConfiguration
+		
+		switch config.mode {
+		case .light:
+			blurBackground.effect = UIBlurEffect(style: .light)
+		case .dark:
+			blurBackground.effect = UIBlurEffect(style: .dark)
+		}
 		
 		backgroundView.backgroundColor = config.contentBackgroundColor
 		

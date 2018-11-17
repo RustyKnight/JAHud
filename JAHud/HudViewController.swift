@@ -60,4 +60,11 @@ public class HudViewController: UIViewController {
 		}
 	}
 	
+	public override var preferredStatusBarStyle: UIStatusBarStyle {
+		switch hudView.configuration?.mode ?? .light {
+		case .light: return UIStatusBarStyle.default
+		case .dark: return UIStatusBarStyle.lightContent
+		}
+	}
+	
 }
