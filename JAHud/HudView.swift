@@ -175,8 +175,8 @@ public class HudView: UIView {
 		backgroundColor = UIColor.clear
 		isOpaque = false
 		
-		blurBackground = UIVisualEffectView()
-		blurBackground.effect = UIBlurEffect(style: .light)
+		let effect = UIBlurEffect(style: .regular)
+		blurBackground = UIVisualEffectView(effect: effect)
 		addSubview(blurBackground)
 		blurBackground.autoPinEdgesToSuperviewEdges()
 		
