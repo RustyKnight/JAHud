@@ -12,9 +12,21 @@ import PureLayout
 
 public class HudView: UIView {
 	
+	@IBOutlet weak var blurBackground: UIVisualEffectView!
+	
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var textLabel: UILabel!
+	
+	@IBOutlet weak var successImageView: UIImageView!
+	@IBOutlet weak var failImageView: UIImageView!
+	@IBOutlet weak var progressView: ProgressIndicatorView!
+	@IBOutlet weak var infiniteWaitView: InfiniteWaitIndicatorView!
+	@IBOutlet weak var materialWaitView: MaterialWaitIndicatorView!
+	@IBOutlet weak var contentView: UIView!
+	
 	// This is the "system wide" configuration used by default when no
 	// other configuration is otherwise specified
-	public static var defaultConfiguration: Hud.Configuration = Hud.Configuration()
+	public static var defaultConfiguration: Hud.Configuration = Hud.configuration
 	
 	internal var configuration: Hud.Configuration? {
 		didSet {
@@ -55,61 +67,58 @@ public class HudView: UIView {
 	
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
-		configureForAutoLayout()
 	}
 	
 	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		configureForAutoLayout()
 	}
 	
 	public init() {
 		super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-		commonInit()
 	}
 	
-	// Base background of the overall view
-	internal var blurBackground: UIVisualEffectView!
-	
-	// Background of the hub, with rounded corners
-	internal lazy var backgroundView: UIView = {
-		let backgroundView = UIView(forAutoLayout: ())
-		backgroundView.backgroundColor = activeConfiguration.contentBackgroundColor
-		backgroundView.layer.cornerRadius = 20
-		backgroundView.alpha = 0.75
-		return backgroundView
-	}()
-	
-	// The default infinite wait indicator
-	internal lazy var tickWaitIndicatorView: InfiniteWaitIndicatorView = {
-		return InfiniteWaitIndicatorView()
-	}()
-
-	internal lazy var materialWaitIndicatorView: MaterialWaitIndicatorView = {
-		let indicator = MaterialWaitIndicatorView()
-		indicator.strokeWidth = 2.0
-		return indicator
-	}()
-
-	// The progress indicator
-	internal lazy var progressIndicatorView: ProgressIndicatorView = {
-		return ProgressIndicatorView()
-	}()
-	
-	// The success view
-	internal lazy var successView: UIImageView = {
-		let view = UIImageView(image: successImage)
-		view.contentMode = .scaleAspectFit
-		return view
-	}()
-	
-	// The fail view
-	internal lazy var failView: UIImageView = {
-		let view = UIImageView(image: failImage)
-		view.contentMode = .scaleAspectFit
-		return view
-	}()
-	
+//	// Base background of the overall view
+//	internal var blurBackground: UIVisualEffectView!
+//
+//	// Background of the hub, with rounded corners
+//	internal lazy var backgroundView: UIView = {
+//		let backgroundView = UIView(forAutoLayout: ())
+//		backgroundView.backgroundColor = activeConfiguration.contentBackgroundColor
+//		backgroundView.layer.cornerRadius = 20
+//		backgroundView.alpha = 0.75
+//		return backgroundView
+//	}()
+//
+//	// The default infinite wait indicator
+//	internal lazy var tickWaitIndicatorView: InfiniteWaitIndicatorView = {
+//		return InfiniteWaitIndicatorView()
+//	}()
+//
+//	internal lazy var materialWaitIndicatorView: MaterialWaitIndicatorView = {
+//		let indicator = MaterialWaitIndicatorView()
+//		indicator.strokeWidth = 2.0
+//		return indicator
+//	}()
+//
+//	// The progress indicator
+//	internal lazy var progressIndicatorView: ProgressIndicatorView = {
+//		return ProgressIndicatorView()
+//	}()
+//
+//	// The success view
+//	internal lazy var successView: UIImageView = {
+//		let view = UIImageView(image: successImage)
+//		view.contentMode = .scaleAspectFit
+//		return view
+//	}()
+//
+//	// The fail view
+//	internal lazy var failView: UIImageView = {
+//		let view = UIImageView(image: failImage)
+//		view.contentMode = .scaleAspectFit
+//		return view
+//	}()
+//
 	internal var successImage: UIImage {
 		switch activeConfiguration.state.fillStyle {
 		case .outlined: return JAHubStyleKit.imageOfSuccessOutlined(fillColor: activeConfiguration.state.successColor)
@@ -127,95 +136,98 @@ public class HudView: UIView {
 	// The core content, the text surrounds this, it appears
 	// in the middle and contains all the different state
 	// views
-	internal lazy var contentView: UIView = {
-		let contentView = UIView(forAutoLayout: ())
-		tickWaitIndicatorView.stopAnimating()
-		materialWaitIndicatorView.stopAnimating()
-		
-		for view in [progressIndicatorView, failView, successView] {
-			view.isHidden = false
-			view.configureForAutoLayout()
-			contentView.addSubview(view)
-			
-			view.autoPinEdgesToSuperviewEdges()
-		}
-		
-		tickWaitIndicatorView.configureForAutoLayout()
-		contentView.addSubview(tickWaitIndicatorView)
-		tickWaitIndicatorView.autoCenterInSuperview()
-		tickWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
-		tickWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
-
-		materialWaitIndicatorView.configureForAutoLayout()
-		contentView.addSubview(materialWaitIndicatorView)
-		materialWaitIndicatorView.autoCenterInSuperview()
-		materialWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
-		materialWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
-
-		return contentView
-	}()
-	
-	internal static let defaultContentSize: CGFloat = 50
-	
-	internal lazy var titleLabel: UILabel = {
-		let label = UILabel()
-		label.textAlignment = .center
-		label.numberOfLines = 0
-		return label
-	}()
-	
-	internal lazy var textLabel: UILabel = {
-		let label = UILabel()
-		label.textAlignment = .center
-		label.numberOfLines = 0
-		return label
-	}()
-	
-	internal func commonInit() {
-		backgroundColor = UIColor.clear
-		isOpaque = false
-		
-		let effect = UIBlurEffect(style: .regular)
-		blurBackground = UIVisualEffectView(effect: effect)
-		addSubview(blurBackground)
-		blurBackground.autoPinEdgesToSuperviewEdges()
-		
-		let stackView = UIStackView(arrangedSubviews: [titleLabel, contentView, textLabel])
-		stackView.alignment = .center
-		stackView.distribution = .equalCentering
-		stackView.axis = .vertical
-		stackView.spacing = 8
-		stackView.configureForAutoLayout()
-		
-		contentViewWidthConstraint = contentView.autoSetDimension(.width, toSize: HudView.defaultContentSize)
-		contentViewHeightConstraint = contentView.autoSetDimension(.height, toSize: HudView.defaultContentSize)
-
-		backgroundView.addSubview(stackView)
-		
-//		stackView.autoCenterInSuperviewMargins()
-		
-		stackView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 16)
-		stackView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 16)
-		stackView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 16)
-		stackView.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 16)
-
-		blurBackground.contentView.addSubview(backgroundView)
-		backgroundView.autoCenterInSuperview()
-		
-		backgroundView.autoSetDimension(.width, toSize: 250, relation: .lessThanOrEqual)
-
-		// This might need to change for iPads :/
-//		backgroundView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 100, relation: .greaterThanOrEqual)
-//		backgroundView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 100, relation: .greaterThanOrEqual)
-	}
-	
-	internal var contentViewWidthConstraint: NSLayoutConstraint!
-	internal var contentViewHeightConstraint: NSLayoutConstraint!
+//	internal lazy var contentView: UIView = {
+//		let contentView = UIView(forAutoLayout: ())
+//		tickWaitIndicatorView.stopAnimating()
+//		materialWaitIndicatorView.stopAnimating()
+//
+//		for view in [progressIndicatorView, failView, successView] {
+//			view.isHidden = false
+//			view.configureForAutoLayout()
+//			contentView.addSubview(view)
+//
+//			view.autoPinEdgesToSuperviewEdges()
+//		}
+//
+//		tickWaitIndicatorView.configureForAutoLayout()
+//		contentView.addSubview(tickWaitIndicatorView)
+//		tickWaitIndicatorView.autoCenterInSuperview()
+//		tickWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
+//		tickWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
+//
+//		materialWaitIndicatorView.configureForAutoLayout()
+//		contentView.addSubview(materialWaitIndicatorView)
+//		materialWaitIndicatorView.autoCenterInSuperview()
+//		materialWaitIndicatorView.autoSetDimension(.width, toSize: 36.0)
+//		materialWaitIndicatorView.autoSetDimension(.height, toSize: 36.0)
+//
+//		return contentView
+//	}()
+//
+//	internal static let defaultContentSize: CGFloat = 50
+//
+//	internal lazy var titleLabel: UILabel = {
+//		let label = UILabel()
+//		label.textAlignment = .center
+//		label.numberOfLines = 0
+//		return label
+//	}()
+//
+//	internal lazy var textLabel: UILabel = {
+//		let label = UILabel()
+//		label.textAlignment = .center
+//		label.numberOfLines = 0
+//		return label
+//	}()
+//
+//	internal func commonInit() {
+//		backgroundColor = UIColor.clear
+//		isOpaque = false
+//
+//		let effect = UIBlurEffect(style: .regular)
+//		blurBackground = UIVisualEffectView(effect: effect)
+//		addSubview(blurBackground)
+//		blurBackground.autoPinEdgesToSuperviewEdges()
+//
+//		let stackView = UIStackView(arrangedSubviews: [titleLabel, contentView, textLabel])
+//		stackView.alignment = .center
+//		stackView.distribution = .equalCentering
+//		stackView.axis = .vertical
+//		stackView.spacing = 8
+//		stackView.configureForAutoLayout()
+//
+//		contentViewWidthConstraint = contentView.autoSetDimension(.width, toSize: HudView.defaultContentSize)
+//		contentViewHeightConstraint = contentView.autoSetDimension(.height, toSize: HudView.defaultContentSize)
+//
+//		backgroundView.addSubview(stackView)
+//
+////		stackView.autoCenterInSuperviewMargins()
+//
+//		stackView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 16)
+//		stackView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 16)
+//		stackView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 16)
+//		stackView.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 16)
+//
+//		blurBackground.contentView.addSubview(backgroundView)
+//		backgroundView.autoCenterInSuperview()
+//
+//		backgroundView.autoSetDimension(.width, toSize: 250, relation: .lessThanOrEqual)
+//
+//		// This might need to change for iPads :/
+////		backgroundView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 100, relation: .greaterThanOrEqual)
+////		backgroundView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 100, relation: .greaterThanOrEqual)
+//	}
+//
+//	internal var contentViewWidthConstraint: NSLayoutConstraint!
+//	internal var contentViewHeightConstraint: NSLayoutConstraint!
 
 	internal func configurationDidChange() {
-		
 		let config = activeConfiguration
-		
+
+		contentView.backgroundColor = activeConfiguration.contentBackgroundColor
+		contentView.layer.cornerRadius = 20
+		contentView.alpha = 0.75
+
 		switch config.mode {
 		case .light:
 			blurBackground.effect = UIBlurEffect(style: .light)
@@ -223,78 +235,76 @@ public class HudView: UIView {
 			blurBackground.effect = UIBlurEffect(style: .dark)
 		}
 		
-		backgroundView.backgroundColor = config.contentBackgroundColor
+//		contentViewWidthConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
+//		contentViewHeightConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
 		
-		contentViewWidthConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
-		contentViewHeightConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
-		
-		successView.image = successImage
-		failView.image = failImage
+		successImageView.image = successImage
+		failImageView.image = failImage
 		
 		titleLabel.textColor = config.titleColor
 		textLabel.textColor = config.textColor
 		
-		tickWaitIndicatorView.tickColor = config.waitIndicatorColor
-		materialWaitIndicatorView.strokeColor = config.waitIndicatorColor
+		infiniteWaitView.tickColor = config.waitIndicatorColor
+		materialWaitView.strokeColor = config.waitIndicatorColor
 		
-		progressIndicatorView.strokeColor = config.progress.strokeColor
-		progressIndicatorView.strokeCap = config.progress.strokeCap
-		progressIndicatorView.strokeWidth = config.progress.strokeWidth
+		progressView.strokeColor = config.progress.strokeColor
+		progressView.strokeCap = config.progress.strokeCap
+		progressView.strokeWidth = config.progress.strokeWidth
 		
 		layoutIfNeeded()
 	}
 	
 	var activeWaitIndicator: AnimatableView {
 		switch activeConfiguration.waitIndicatorStyle {
-		case .iOS: return tickWaitIndicatorView
-		case .material: return materialWaitIndicatorView
+		case .iOS: return infiniteWaitView
+		case .material: return materialWaitView
 		}
 	}
 	
 	var inactiveWaitIndicator: AnimatableView {
 		switch activeConfiguration.waitIndicatorStyle {
-		case .iOS: return materialWaitIndicatorView
-		case .material: return tickWaitIndicatorView
+		case .iOS: return materialWaitView
+		case .material: return infiniteWaitView
 		}
 	}
 	
 	// Need to know if we should animate the change or not...
 	internal func styleDidChange(then: Hud.HudThen? = nil) {
 		guard superview != nil else {
-			tickWaitIndicatorView.isHidden = true
-			tickWaitIndicatorView.stopAnimating()
+			infiniteWaitView.isHidden = true
+			infiniteWaitView.stopAnimating()
 			
-			materialWaitIndicatorView.isHidden = true
-			materialWaitIndicatorView.stopAnimating()
+			materialWaitView.isHidden = true
+			materialWaitView.stopAnimating()
 
-			progressIndicatorView.isHidden = true
-			progressIndicatorView.stopAnimating()
+			progressView.isHidden = true
+			progressView.stopAnimating()
 			
-			successView.isHidden = true
-			failView.isHidden = true
+			successImageView.isHidden = true
+			failImageView.isHidden = true
 			
 			switch style {
 			case .progress:
-				progressIndicatorView.isHidden = false
-				progressIndicatorView.startAnimating()
+				progressView.isHidden = false
+				progressView.startAnimating()
 				fallthrough
 			case .infiniteWait:
 				activeWaitIndicator.startAnimating()
 				activeWaitIndicator.isHidden = false
-			case .success: successView.isHidden = false
-			case .failure: failView.isHidden = false
+			case .success: successImageView.isHidden = false
+			case .failure: failImageView.isHidden = false
 			}
 			layoutIfNeeded()
 			then?()
 			return
 		}
 		
-		let views = [activeWaitIndicator, inactiveWaitIndicator, progressIndicatorView, successView, failView]
+		let views = [activeWaitIndicator, inactiveWaitIndicator, progressView, successImageView, failImageView]
 		var incoming: [UIView] = []
 		switch style {
 		case .progress:
-			if progressIndicatorView.isHidden {
-				incoming.append(progressIndicatorView)
+			if progressView.isHidden {
+				incoming.append(progressView)
 			}
 			fallthrough
 		case .infiniteWait:
@@ -302,24 +312,24 @@ public class HudView: UIView {
 				incoming.append(activeWaitIndicator)
 			}
 		case .success:
-			if successView.isHidden {
-				incoming.append(successView)
+			if successImageView.isHidden {
+				incoming.append(successImageView)
 			}
 		case .failure:
-			if failView.isHidden {
-				incoming.append(failView)
+			if failImageView.isHidden {
+				incoming.append(failImageView)
 			}
 		}
 		
 		if style == .progress {
-			progressIndicatorView.startAnimating()
-			activeWaitIndicator.startAnimating()
+			progressView.startAnimating()
+			progressView.startAnimating()
 		} else if style == .infiniteWait {
 			activeWaitIndicator.startAnimating()
 		}
 		
 		let outgoing = views.filter { (view) -> Bool in
-			!view.isHidden && !incoming.contains(view)
+			!view!.isHidden && !incoming.contains(view!)
 		}
 		
 		for view in incoming {
@@ -334,20 +344,20 @@ public class HudView: UIView {
 				view.alpha = 1.0
 			}
 			for view in outgoing {
-				view.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-				view.alpha = 0.0
+				view!.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+				view!.alpha = 0.0
 			}
 			self.layoutIfNeeded()
 		}) { completed in
 			for view in outgoing {
-				view.isHidden = true
+				view!.isHidden = true
 				// Just in case we need these later :/
-				view.alpha = 1.0
-				view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+				view!.alpha = 1.0
+				view!.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
 			}
 			self.inactiveWaitIndicator.stopAnimating()
 			if self.style == .success || self.style == .failure {
-				self.progressIndicatorView.stopAnimating()
+				self.progressView.stopAnimating()
 			}
 			then?()
 		}

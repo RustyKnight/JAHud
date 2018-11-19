@@ -107,7 +107,7 @@ public struct Hud {
 		}
 	}
 	
-	public static var configuration: Configuration?
+	public static var configuration: Configuration = Hud.Configuration()
 	
 	public typealias HudThen = () -> Void
 
@@ -149,7 +149,7 @@ public struct Hud {
 		hudView.title = title
 		hudView.text = text
 		hudView.set(style)
-		hudView.progressIndicatorView.progress = progress
+		hudView.progressView.progress = progress
 		
 		registery[parent] = hudController
 		

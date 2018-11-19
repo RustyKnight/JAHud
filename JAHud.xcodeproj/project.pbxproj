@@ -20,6 +20,7 @@
 		7009C2BD2143D0EB00E9E8D8 /* AnimatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */; };
 		70748B0121436DCD00C04F2C /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0021436DCD00C04F2C /* Hud.swift */; };
 		70748B0321436FBF00C04F2C /* HudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0221436FBF00C04F2C /* HudViewController.swift */; };
+		70E7A17121A2B10F00D2551A /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E7A17021A2B10F00D2551A /* HudView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableView.swift; sourceTree = "<group>"; };
 		70748B0021436DCD00C04F2C /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		70748B0221436FBF00C04F2C /* HudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudViewController.swift; sourceTree = "<group>"; };
+		70E7A17021A2B10F00D2551A /* HudView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HudView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */,
 				1291E5A0214211470057DA82 /* StyleKits */,
 				7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */,
+				70E7A17021A2B10F00D2551A /* HudView.xib */,
 			);
 			path = JAHud;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E7A17121A2B10F00D2551A /* HudView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
