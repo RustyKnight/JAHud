@@ -228,12 +228,12 @@ public class HudView: UIView {
 		contentView.layer.cornerRadius = 20
 		contentView.alpha = 0.75
 
-		switch config.mode {
-		case .light:
-			blurBackground.effect = UIBlurEffect(style: .light)
-		case .dark:
-			blurBackground.effect = UIBlurEffect(style: .dark)
-		}
+//		switch config.mode {
+//		case .light:
+//			blurBackground.effect = UIBlurEffect(style: .light)
+//		case .dark:
+//			blurBackground.effect = UIBlurEffect(style: .dark)
+//		}
 		
 //		contentViewWidthConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
 //		contentViewHeightConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth

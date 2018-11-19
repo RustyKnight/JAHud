@@ -119,9 +119,11 @@
 		12FF21862141D9E000313955 /* JAHud */ = {
 			isa = PBXGroup;
 			children = (
+				7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */,
 				1291E59D214203140057DA82 /* Extensions */,
 				70748B0021436DCD00C04F2C /* Hud.swift */,
 				12FF219E2141DA0500313955 /* HudView.swift */,
+				70E7A17021A2B10F00D2551A /* HudView.xib */,
 				70748B0221436FBF00C04F2C /* HudViewController.swift */,
 				1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */,
 				12FF21882141D9E000313955 /* Info.plist */,
@@ -129,8 +131,6 @@
 				7009C2BA2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift */,
 				1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */,
 				1291E5A0214211470057DA82 /* StyleKits */,
-				7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */,
-				70E7A17021A2B10F00D2551A /* HudView.xib */,
 			);
 			path = JAHud;
 			sourceTree = "<group>";
