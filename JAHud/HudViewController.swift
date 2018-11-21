@@ -44,6 +44,7 @@ public class HudViewController: UIViewController {
 	public override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
+		self.hudView.blurBackground.effect = nil
 		UIView.animate(withDuration: 0.3,
 									 delay: 0,
 									 usingSpringWithDamping: 0.5,
@@ -52,7 +53,7 @@ public class HudViewController: UIViewController {
 									 animations: {
 			self.hudView.contentView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
 			self.hudView.alpha = 1.0
-			self.hudView.blurBackground.effect = UIBlurEffect(style: .light)
+			self.hudView.applyBlur()
 		}) { completed in
 			self.afterAppear?()
 		}

@@ -42,7 +42,7 @@ public struct Hud {
 					titleColor = .white
 					textColor = .white
 					waitIndicatorColor = .white
-					contentBackgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 0.75)
+					contentBackgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75)
 					progress.strokeColor = .white
 					state.successColor = .white
 					state.failColor = .white
