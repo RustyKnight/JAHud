@@ -260,7 +260,10 @@ public class HudView: UIView {
 		progressView.strokeColor = config.progress.strokeColor
 		progressView.strokeCap = config.progress.strokeCap
 		progressView.strokeWidth = config.progress.strokeWidth
-		
+
+		progressView.trackColor = config.progress.trackColor
+		progressView.trackWidth = config.progress.trackWidth
+
 		layoutIfNeeded()
 	}
 	

@@ -24,6 +24,7 @@ class ProgressIndicatorView: AnimatableView {
 	internal var currentProgress: Double = 0.0
 	
 	internal var progressShape: CAShapeLayer = CAShapeLayer()
+	internal var trackShape: CAShapeLayer = CAShapeLayer()
 	
 	var isAnimating: Bool {
 		return !displayLink.isPaused
@@ -48,6 +49,18 @@ class ProgressIndicatorView: AnimatableView {
 			progressShape.lineCap = strokeCap
 		}
 	}
+	
+	var trackColor: UIColor = UIColor.darkGray.withAlphaComponent(0.15) {
+		didSet {
+			trackShape.strokeColor = trackColor.cgColor
+		}
+	}
+	
+	var trackWidth: CGFloat = 1.0 {
+		didSet {
+			trackShape.lineWidth = trackWidth
+		}
+	}
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -64,7 +77,18 @@ class ProgressIndicatorView: AnimatableView {
 		displayLink.preferredFramesPerSecond = 60
 		displayLink.add(to: .current, forMode: RunLoop.Mode.default)
 		displayLink.isPaused = true
-		
+
+		trackShape.strokeColor = trackColor.cgColor
+		trackShape.lineWidth = trackWidth
+		trackShape.lineJoin = .round
+		trackShape.strokeStart = 0
+		trackShape.strokeEnd = 1
+		trackShape.path = UIBezierPath(ovalIn: frame).cgPath
+		trackShape.frame = bounds
+		trackShape.fillColor = nil
+
+		layer.addSublayer(trackShape)
+
 		progressShape.strokeColor = strokeColor.cgColor
 		progressShape.lineWidth = strokeWidth
 		progressShape.lineCap = strokeCap
@@ -76,7 +100,7 @@ class ProgressIndicatorView: AnimatableView {
 		progressShape.fillColor = nil
 		
 		layer.addSublayer(progressShape)
-		
+
 		backgroundColor = nil
 		isOpaque = false
 	}
@@ -97,6 +121,10 @@ class ProgressIndicatorView: AnimatableView {
 		
 		progressShape.path = UIBezierPath(arcCenter: middle, radius: radius, startAngle: startAt, endAngle: endAt, clockwise: true).cgPath
 		progressShape.frame = bounds
+
+		let trackFrame = bounds
+		trackShape.path = UIBezierPath(ovalIn: trackFrame).cgPath
+		trackShape.frame = bounds
 	}
 	
 	override public func startAnimating() {

@@ -36,6 +36,7 @@ public struct Hud {
 					waitIndicatorColor = .black
 					contentBackgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
 					progress.strokeColor = .black
+					progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
 					state.successColor = .black
 					state.failColor = .black
 				case .dark:
@@ -44,6 +45,7 @@ public struct Hud {
 					waitIndicatorColor = .white
 					contentBackgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75)
 					progress.strokeColor = .white
+					progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
 					state.successColor = .white
 					state.failColor = .white
 				}
@@ -62,9 +64,12 @@ public struct Hud {
 	
 	public struct ProgressConfiguration {
 		public var strokeColor: UIColor = .black
-		public var strokeWidth: CGFloat = 1
+		public var strokeWidth: CGFloat = 3.0
 		public var strokeCap: CAShapeLayerLineCap = .round
-		
+
+		public var trackColor: UIColor = UIColor.black.withAlphaComponent(0.15)
+		public var trackWidth: CGFloat = 1.0
+
 		public init() {}
 	}
 	
