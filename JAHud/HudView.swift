@@ -45,6 +45,10 @@ public class HudView: UIView {
 	public private(set) var style: Hud.Style = .infiniteWait
 	
 	public func set(_ style: Hud.Style, then: Hud.HudThen? = nil) {
+		guard self.style != style else {
+			then?()
+			return
+		}
 		self.style = style
 		styleDidChange(then: then)
 	}
@@ -312,24 +316,30 @@ public class HudView: UIView {
 			return
 		}
 		
+		print("Re-order the state")
+		
 		let views = [activeWaitIndicator, inactiveWaitIndicator, progressView, successImageView, failImageView]
 		var incoming: [UIView] = []
 		switch style {
 		case .progress:
 			if progressView.isHidden {
+				print(">> Incoming progress view")
 				incoming.append(progressView)
 			}
 			fallthrough
 		case .infiniteWait:
 			if activeWaitIndicator.isHidden {
+				print(">> Incoming wait")
 				incoming.append(activeWaitIndicator)
 			}
 		case .success:
 			if successImageView.isHidden {
+				print(">> Incoming success")
 				incoming.append(successImageView)
 			}
 		case .failure:
 			if failImageView.isHidden {
+				print(">> Incoming fail")
 				incoming.append(failImageView)
 			}
 		}

@@ -206,6 +206,7 @@
 				TargetAttributes = {
 					12FF21832141D9E000313955 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1120;
 					};
 					12FF218C2141D9E000313955 = {
 						CreatedOnToolsVersion = 10.0;
@@ -218,6 +219,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 12FF217A2141D9E000313955;
 			productRefGroup = 12FF21852141D9E000313955 /* Products */;
@@ -430,7 +432,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHub;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -459,7 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHub;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
