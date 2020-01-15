@@ -316,30 +316,32 @@ public class HudView: UIView {
 			return
 		}
 		
-		print("Re-order the state")
-		
-		let views = [activeWaitIndicator, inactiveWaitIndicator, progressView, successImageView, failImageView]
+		let views = [activeWaitIndicator, inactiveWaitIndicator, progressView, successImageView, failImageView, titleLabel, textLabel]
 		var incoming: [UIView] = []
+		
+		if title != nil {
+			incoming.append(titleLabel)
+		}
+		if text != nil {
+			incoming.append(textLabel)
+		}
+		
 		switch style {
 		case .progress:
 			if progressView.isHidden {
-				print(">> Incoming progress view")
 				incoming.append(progressView)
 			}
 			fallthrough
 		case .infiniteWait:
 			if activeWaitIndicator.isHidden {
-				print(">> Incoming wait")
 				incoming.append(activeWaitIndicator)
 			}
 		case .success:
 			if successImageView.isHidden {
-				print(">> Incoming success")
 				incoming.append(successImageView)
 			}
 		case .failure:
 			if failImageView.isHidden {
-				print(">> Incoming fail")
 				incoming.append(failImageView)
 			}
 		}
