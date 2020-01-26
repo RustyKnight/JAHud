@@ -130,12 +130,8 @@ public struct Hud {
 															 then: HudThen? = nil) {
 		
 		if let hudController = registery[parent] {
-			if title != nil && (hudController.title == nil || hudController.title != title) {
-				hudController.hudView.title = title
-			}
-			if text != nil && (hudController.hudView.text == nil || hudController.hudView.text != text) {
-				hudController.hudView.text = text
-			}
+			hudController.hudView.title = title
+			hudController.hudView.text = text
 			
 			if hudController.hudView.configuration == nil && configuration != nil {
 				hudController.hudView.configuration = configuration

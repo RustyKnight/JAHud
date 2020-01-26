@@ -45,6 +45,10 @@ public class HudView: UIView {
 	public private(set) var style: Hud.Style = .infiniteWait
 	
 	public func set(_ style: Hud.Style, then: Hud.HudThen? = nil) {
+		guard self.style != style else {
+			then?()
+			return
+		}
 		self.style = style
 		styleDidChange(then: then)
 	}
@@ -312,8 +316,16 @@ public class HudView: UIView {
 			return
 		}
 		
-		let views = [activeWaitIndicator, inactiveWaitIndicator, progressView, successImageView, failImageView]
+		let views = [activeWaitIndicator, inactiveWaitIndicator, progressView, successImageView, failImageView, titleLabel, textLabel]
 		var incoming: [UIView] = []
+		
+		if title != nil {
+			incoming.append(titleLabel)
+		}
+		if text != nil {
+			incoming.append(textLabel)
+		}
+		
 		switch style {
 		case .progress:
 			if progressView.isHidden {
