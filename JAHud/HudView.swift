@@ -42,7 +42,7 @@ public class HudView: UIView {
 		return config
 	}
 	
-	public private(set) var style: Hud.Style = .infiniteWait
+	public private(set) var style: Hud.Style = .none
 	
 	public func set(_ style: Hud.Style, then: Hud.HudThen? = nil) {
 		guard self.style != style else {
@@ -310,6 +310,7 @@ public class HudView: UIView {
 				activeWaitIndicator.isHidden = false
 			case .success: successImageView.isHidden = false
 			case .failure: failImageView.isHidden = false
+			case .none: break
 			}
 			layoutIfNeeded()
 			then?()
@@ -344,6 +345,7 @@ public class HudView: UIView {
 			if failImageView.isHidden {
 				incoming.append(failImageView)
 			}
+		case .none: break
 		}
 		
 		if style == .progress {
@@ -354,7 +356,9 @@ public class HudView: UIView {
 		}
 		
 		let outgoing = views.filter { (view) -> Bool in
-			!view!.isHidden && !incoming.contains(view!)
+			guard !incoming.contains(view!) else { return false }
+			return !view!.isHidden
+			//!view!.isHidden && !incoming.contains(view!)
 		}
 		
 		for view in incoming {

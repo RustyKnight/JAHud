@@ -91,6 +91,7 @@ public struct Hud {
 		case progress
 		case success
 		case failure
+		case none
 	}
 	
 	public enum WaitIndicatorStyle {
