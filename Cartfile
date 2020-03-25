@@ -1,2 +1,2 @@
 #github "PureLayout/PureLayout"
-binary "https://www.kiazenenterprises.org:8443/json/11.3.1b11C504/PureLayout" ~> 3.1.4
+binary "https://www.kiazenenterprises.org:8443/json/11.4b11E146/PureLayout" ~> 3.1.4
