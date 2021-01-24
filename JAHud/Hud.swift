@@ -11,15 +11,15 @@ import Foundation
 /*
 This a "control center" intended to reduce the complexity of the actual view
 */
-public struct Hud {
+public class Hud {
 	
-	public struct Configuration {
+	public class Configuration {
 		public var titleColor: UIColor = UIColor.black
 		public var textColor: UIColor = UIColor.black
 		
 		public var waitIndicatorColor: UIColor = UIColor.black
 		public var waitIndicatorStyle: WaitIndicatorStyle = .iOS
-
+		
 		public var contentBackgroundColor: UIColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
 		
 		public var progress: ProgressConfiguration = ProgressConfiguration()
@@ -29,47 +29,80 @@ public struct Hud {
 		
 		public var mode: Mode {
 			didSet {
-				switch mode {
-				case .light:
-					titleColor = .black
-					textColor = .black
-					waitIndicatorColor = .black
-					contentBackgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
-					progress.strokeColor = .black
-					progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
-					state.successColor = .black
-					state.failColor = .black
-				case .dark:
-					titleColor = .white
-					textColor = .white
-					waitIndicatorColor = .white
-					contentBackgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75)
-					progress.strokeColor = .white
-					progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
-					state.successColor = .white
-					state.failColor = .white
-				}
+				configureBasedOnMode()
+			}
+		}
+		
+		internal func configureBasedOnMode() {
+			switch mode {
+			case .light: configureForLightMode()
+			case .dark: configureForDarkMode()
+			case .system: configureForSystemMode()
+				break
+			}
+		}
+		
+		internal func configureForLightMode() {
+			print("Use light colors")
+			titleColor = .black
+			textColor = .black
+			waitIndicatorColor = .black
+			contentBackgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
+			progress.strokeColor = .black
+			progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
+			state.successColor = .black
+			state.failColor = .black
+		}
+		
+		internal func configureForDarkMode(){
+			print("Use dark colors")
+			titleColor = .white
+			textColor = .white
+			waitIndicatorColor = .white
+			contentBackgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75)
+			progress.strokeColor = .white
+			progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
+			state.successColor = .white
+			state.failColor = .white
+		}
+		
+		internal func configureForSystemMode() {
+			if #available(iOS 13.0, *) {
+				print("Use sytem colors")
+				titleColor = .label
+				textColor = .label
+				waitIndicatorColor = .label
+				contentBackgroundColor = .systemGray4
+				progress.strokeColor = .label
+				progress.trackColor = progress.strokeColor.withAlphaComponent(0.15)
+				state.successColor = .label
+				state.failColor = .label
+			} else {
+				configureForLightMode()
 			}
 		}
 		
 		public init() {
-			mode = .light
+			print("Well hello")
+			self.mode = .system
+			configureBasedOnMode()
 		}
 	}
 	
 	public enum Mode {
 		case light
 		case dark
+		case system
 	}
 	
 	public struct ProgressConfiguration {
 		public var strokeColor: UIColor = .black
 		public var strokeWidth: CGFloat = 3.0
 		public var strokeCap: CAShapeLayerLineCap = .round
-
+		
 		public var trackColor: UIColor = UIColor.black.withAlphaComponent(0.15)
 		public var trackWidth: CGFloat = 1.0
-
+		
 		public init() {}
 	}
 	
@@ -116,7 +149,7 @@ public struct Hud {
 	public static var configuration: Configuration = Hud.Configuration()
 	
 	public typealias HudThen = () -> Void
-
+	
 	// MARK: - Globle accessible functionality
 	
 	private static var registery: [UIViewController: HudViewController] = [:]
@@ -157,8 +190,8 @@ public struct Hud {
 		
 		parent.present(hudController, animated: false, completion: nil)
 		
-//		parent.addSubview(hudView)
-//		hudView.autoPinEdgesToSuperviewEdges()
+		//		parent.addSubview(hudView)
+		//		hudView.autoPinEdgesToSuperviewEdges()
 	}
 	
 	// MARK: - Present infinite wait
@@ -177,17 +210,17 @@ public struct Hud {
 						then: then)
 	}
 	
-//	public static func presentWait(on parent: UIView, title: String? = nil, text: String? = nil,
-//																 presentationStyle: PresentationStyle = .overCurrentContext,
-//																 configuration: Configuration? = nil, then: HudThen? = nil) {
-//		present(style: .infiniteWait,
-//						on: parent,
-//						title: title,
-//						text: text,
-//						presentationStyle: presentationStyle,
-//						configuration: configuration,
-//						then: then)
-//	}
+	//	public static func presentWait(on parent: UIView, title: String? = nil, text: String? = nil,
+	//																 presentationStyle: PresentationStyle = .overCurrentContext,
+	//																 configuration: Configuration? = nil, then: HudThen? = nil) {
+	//		present(style: .infiniteWait,
+	//						on: parent,
+	//						title: title,
+	//						text: text,
+	//						presentationStyle: presentationStyle,
+	//						configuration: configuration,
+	//						then: then)
+	//	}
 	
 	// MARK: - Present progress
 	
@@ -208,18 +241,18 @@ public struct Hud {
 						then: then)
 	}
 	
-//	public static func presentProgress(on view: UIView, progress: Progress, title: String? = nil, text: String? = nil,
-//																		 presentationStyle: PresentationStyle = .overCurrentContext,
-//																		 configuration: Configuration? = nil, then: HudThen? = nil) {
-//		present(style: .progress,
-//						on: view,
-//						title: title,
-//						text: text,
-//						progress: progress,
-//						presentationStyle: presentationStyle,
-//						configuration: configuration,
-//						then: then)
-//	}
+	//	public static func presentProgress(on view: UIView, progress: Progress, title: String? = nil, text: String? = nil,
+	//																		 presentationStyle: PresentationStyle = .overCurrentContext,
+	//																		 configuration: Configuration? = nil, then: HudThen? = nil) {
+	//		present(style: .progress,
+	//						on: view,
+	//						title: title,
+	//						text: text,
+	//						progress: progress,
+	//						presentationStyle: presentationStyle,
+	//						configuration: configuration,
+	//						then: then)
+	//	}
 	
 	// MARK: - Present success
 	
@@ -235,17 +268,17 @@ public struct Hud {
 						then: then)
 	}
 	
-//	public static func presentSuccess(on view: UIView, title: String? = nil, text: String? = nil,
-//																		presentationStyle: PresentationStyle = .overCurrentContext,
-//																		configuration: Configuration? = nil, then: HudThen? = nil) {
-//		present(style: .success,
-//						on: view,
-//						title: title,
-//						text: text,
-//						presentationStyle: presentationStyle,
-//						configuration: configuration,
-//						then: then)
-//	}
+	//	public static func presentSuccess(on view: UIView, title: String? = nil, text: String? = nil,
+	//																		presentationStyle: PresentationStyle = .overCurrentContext,
+	//																		configuration: Configuration? = nil, then: HudThen? = nil) {
+	//		present(style: .success,
+	//						on: view,
+	//						title: title,
+	//						text: text,
+	//						presentationStyle: presentationStyle,
+	//						configuration: configuration,
+	//						then: then)
+	//	}
 	
 	// MARK: - Present success
 	
@@ -261,22 +294,22 @@ public struct Hud {
 						then: then)
 	}
 	
-//	public static func presentFailure(on view: UIView, title: String? = nil, text: String? = nil,
-//																		presentationStyle: PresentationStyle = .overCurrentContext,
-//																		configuration: Configuration? = nil, then: HudThen? = nil) {
-//		present(style: .failure,
-//						on: view,
-//						title: title,
-//						text: text,
-//						presentationStyle: presentationStyle,
-//						configuration: configuration,
-//						then: then)
-//	}
+	//	public static func presentFailure(on view: UIView, title: String? = nil, text: String? = nil,
+	//																		presentationStyle: PresentationStyle = .overCurrentContext,
+	//																		configuration: Configuration? = nil, then: HudThen? = nil) {
+	//		present(style: .failure,
+	//						on: view,
+	//						title: title,
+	//						text: text,
+	//						presentationStyle: presentationStyle,
+	//						configuration: configuration,
+	//						then: then)
+	//	}
 	
 	// MARK: - Dismiss
 	
 	public static func dismiss(from parent: UIViewController, then: HudThen? = nil) {
-//		dismiss(from: parent.view, then: then)
+		//		dismiss(from: parent.view, then: then)
 		guard let hudController = registery[parent] else {
 			then?()
 			return
@@ -287,21 +320,21 @@ public struct Hud {
 		}
 	}
 	
-//	public static func dismiss(from parent: UIView, then: HudThen? = nil) {
-//		guard let hudController = registery[parent] else {
-//			then?()
-//			return
-//		}
-//		hudController.dismiss(animated: false) {
-//			registery[parent] = nil
-//			then?()
-//		}
-//	}
-  
-  public static func dismissAll() {
-    for vc in registery.keys {
-      dismiss(from: vc)
-    }
-  }
+	//	public static func dismiss(from parent: UIView, then: HudThen? = nil) {
+	//		guard let hudController = registery[parent] else {
+	//			then?()
+	//			return
+	//		}
+	//		hudController.dismiss(animated: false) {
+	//			registery[parent] = nil
+	//			then?()
+	//		}
+	//	}
+	
+	public static func dismissAll() {
+		for vc in registery.keys {
+			dismiss(from: vc)
+		}
+	}
 	
 }

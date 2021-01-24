@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		125A56FE2142304700F241FA /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125A56FD2142304700F241FA /* PureLayout.framework */; };
-		125A56FF2142304700F241FA /* PureLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 125A56FD2142304700F241FA /* PureLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1291E5562141DA650057DA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5552141DA650057DA82 /* AppDelegate.swift */; };
 		1291E5582141DA650057DA82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5572141DA650057DA82 /* ViewController.swift */; };
 		1291E55B2141DA650057DA82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1291E5592141DA650057DA82 /* Main.storyboard */; };
@@ -16,8 +14,9 @@
 		1291E5602141DA660057DA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1291E55E2141DA660057DA82 /* LaunchScreen.storyboard */; };
 		1291E56B2141DA660057DA82 /* JAHubExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E56A2141DA660057DA82 /* JAHubExampleTests.swift */; };
 		1291E5762141DA660057DA82 /* JAHubExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */; };
-		70748AFE214344CD00C04F2C /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; };
-		70748AFF214344CD00C04F2C /* JAHud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1825640225BD10E500EC3916 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; };
+		1825640325BD10E500EC3916 /* JAHud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1825640525BD10E800EC3916 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125A56FD2142304700F241FA /* PureLayout.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,14 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1291E5902141DA960057DA82 /* Embed Frameworks */ = {
+		1825640425BD10E500EC3916 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				125A56FF2142304700F241FA /* PureLayout.framework in Embed Frameworks */,
-				70748AFF214344CD00C04F2C /* JAHud.framework in Embed Frameworks */,
+				1825640325BD10E500EC3916 /* JAHud.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,8 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				125A56FE2142304700F241FA /* PureLayout.framework in Frameworks */,
-				70748AFE214344CD00C04F2C /* JAHud.framework in Frameworks */,
+				1825640525BD10E800EC3916 /* PureLayout.framework in Frameworks */,
+				1825640225BD10E500EC3916 /* JAHud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +158,8 @@
 				1291E54E2141DA650057DA82 /* Sources */,
 				1291E54F2141DA650057DA82 /* Frameworks */,
 				1291E5502141DA650057DA82 /* Resources */,
-				1291E5902141DA960057DA82 /* Embed Frameworks */,
+				1825640425BD10E500EC3916 /* Embed Frameworks */,
+				1825641725BD118A00EC3916 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -214,7 +213,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = KaiZen;
 				TargetAttributes = {
 					1291E5512141DA650057DA82 = {
@@ -276,6 +275,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1825641725BD118A00EC3916 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/../Carthage/xcfilelists/JAHUD-inputPaths.xcfilelist",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+				"$(SRCROOT)/../Carthage/xcfilelists/JAHUD-outputPaths.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1291E54E2141DA650057DA82 /* Sources */ = {
@@ -364,6 +385,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -389,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -425,6 +447,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -444,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -459,7 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "$(SRCROOT)/JAHudExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,7 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "$(SRCROOT)/JAHudExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

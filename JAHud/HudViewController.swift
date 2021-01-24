@@ -73,6 +73,7 @@ public class HudViewController: UIViewController {
 		switch hudView.configuration?.mode ?? .light {
 		case .light: return UIStatusBarStyle.default
 		case .dark: return UIStatusBarStyle.lightContent
+		case .system: return .default
 		}
 	}
 	

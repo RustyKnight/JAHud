@@ -71,14 +71,15 @@ public class HudView: UIView {
 	
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
+		configurationDidChange()
 	}
 	
 	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 	
-	public init() {
-		super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+	public convenience init() {
+		self.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 	}
 	
 //	// Base background of the overall view
@@ -225,6 +226,14 @@ public class HudView: UIView {
 //	internal var contentViewWidthConstraint: NSLayoutConstraint!
 //	internal var contentViewHeightConstraint: NSLayoutConstraint!
 	
+	var isDarkMode: Bool {
+		if #available(iOS 12.0, *) {
+			return traitCollection.userInterfaceStyle == .dark
+		} else {
+			return false
+		}
+	}
+
 	func applyBlur() {
 		let config = activeConfiguration
 		switch config.mode {
@@ -232,6 +241,13 @@ public class HudView: UIView {
 			blurBackground.effect = UIBlurEffect(style: .light)
 		case .dark:
 			blurBackground.effect = UIBlurEffect(style: .dark)
+		case .system:
+			if isDarkMode {
+				blurBackground.effect = UIBlurEffect(style: .dark)
+			} else {
+				blurBackground.effect = UIBlurEffect(style: .light)
+			}
+			break
 		}
 	}
 
@@ -242,18 +258,13 @@ public class HudView: UIView {
 		contentView.layer.cornerRadius = 20
 		contentView.alpha = 0.75
 
-		switch config.mode {
-		case .light:
-			blurBackground.effect = UIBlurEffect(style: .light)
-		case .dark:
-			blurBackground.effect = UIBlurEffect(style: .dark)
-		}
-		
-//		contentViewWidthConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
-//		contentViewHeightConstraint.constant = HudView.defaultContentSize + config.progress.strokeWidth
+		applyBlur()
 		
 		successImageView.image = successImage
 		failImageView.image = failImage
+		
+		print("mode = \(config.mode)")
+		print("titleColor = \(config.titleColor)")
 		
 		titleLabel.textColor = config.titleColor
 		textLabel.textColor = config.textColor
