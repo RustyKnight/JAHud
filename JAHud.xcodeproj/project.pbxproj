@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1291E5912141DB8D0057DA82 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF219E2141DA0500313955 /* HudView.swift */; };
-		1291E5942141DD520057DA82 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1291E5932141DD520057DA82 /* PureLayout.framework */; };
 		1291E5962141E1840057DA82 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */; };
 		1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E59E2142032E0057DA82 /* Number+Radians.swift */; };
 		1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A1214211470057DA82 /* JAHubStyleKit.swift */; };
@@ -16,6 +15,8 @@
 		12FF218E2141D9E000313955 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FF21842141D9E000313955 /* JAHud.framework */; };
 		12FF21932141D9E000313955 /* JAHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF21922141D9E000313955 /* JAHubTests.swift */; };
 		12FF21952141D9E000313955 /* JAHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1813B04E266F7D62009B07DA /* PureLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1813B04D266F7D62009B07DA /* PureLayout.xcframework */; };
+		1813B04F266F7D62009B07DA /* PureLayout.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1813B04D266F7D62009B07DA /* PureLayout.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7009C2BB2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009C2BA2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift */; };
 		7009C2BD2143D0EB00E9E8D8 /* AnimatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */; };
 		70748B0121436DCD00C04F2C /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0021436DCD00C04F2C /* Hud.swift */; };
@@ -33,8 +34,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1813B050266F7D62009B07DA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1813B04F266F7D62009B07DA /* PureLayout.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1291E5932141DD520057DA82 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		1291E59E2142032E0057DA82 /* Number+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Radians.swift"; sourceTree = "<group>"; };
 		1291E5A1214211470057DA82 /* JAHubStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAHubStyleKit.swift; sourceTree = "<group>"; };
@@ -46,6 +60,7 @@
 		12FF21922141D9E000313955 /* JAHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubTests.swift; sourceTree = "<group>"; };
 		12FF21942141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12FF219E2141DA0500313955 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		1813B04D266F7D62009B07DA /* PureLayout.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PureLayout.xcframework; path = Carthage/Build/PureLayout.xcframework; sourceTree = "<group>"; };
 		7009C2BA2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialWaitIndicatorView.swift; sourceTree = "<group>"; };
 		7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableView.swift; sourceTree = "<group>"; };
 		70748B0021436DCD00C04F2C /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -58,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1291E5942141DD520057DA82 /* PureLayout.framework in Frameworks */,
+				1813B04E266F7D62009B07DA /* PureLayout.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +91,7 @@
 		1291E5922141DD520057DA82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1291E5932141DD520057DA82 /* PureLayout.framework */,
+				1813B04D266F7D62009B07DA /* PureLayout.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,17 +134,17 @@
 		12FF21862141D9E000313955 /* JAHud */ = {
 			isa = PBXGroup;
 			children = (
+				12FF21872141D9E000313955 /* JAHud.h */,
+				12FF21882141D9E000313955 /* Info.plist */,
 				7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */,
-				1291E59D214203140057DA82 /* Extensions */,
 				70748B0021436DCD00C04F2C /* Hud.swift */,
 				12FF219E2141DA0500313955 /* HudView.swift */,
-				70E7A17021A2B10F00D2551A /* HudView.xib */,
 				70748B0221436FBF00C04F2C /* HudViewController.swift */,
 				1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */,
-				12FF21882141D9E000313955 /* Info.plist */,
-				12FF21872141D9E000313955 /* JAHud.h */,
 				7009C2BA2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift */,
 				1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */,
+				70E7A17021A2B10F00D2551A /* HudView.xib */,
+				1291E59D214203140057DA82 /* Extensions */,
 				1291E5A0214211470057DA82 /* StyleKits */,
 			);
 			path = JAHud;
@@ -166,6 +181,7 @@
 				12FF21802141D9E000313955 /* Sources */,
 				12FF21812141D9E000313955 /* Frameworks */,
 				12FF21822141D9E000313955 /* Resources */,
+				1813B050266F7D62009B07DA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,6 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHub;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,6 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHub;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
