@@ -15,7 +15,6 @@
 		1291E56B2141DA660057DA82 /* JAHubExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E56A2141DA660057DA82 /* JAHubExampleTests.swift */; };
 		1291E5762141DA660057DA82 /* JAHubExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */; };
 		1825640225BD10E500EC3916 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; };
-		1825640325BD10E500EC3916 /* JAHud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1825640525BD10E800EC3916 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125A56FD2142304700F241FA /* PureLayout.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,20 +34,6 @@
 			remoteInfo = JAHubExample;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		1825640425BD10E500EC3916 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				1825640325BD10E500EC3916 /* JAHud.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		125A56FD2142304700F241FA /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = ../Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
@@ -158,7 +143,6 @@
 				1291E54E2141DA650057DA82 /* Sources */,
 				1291E54F2141DA650057DA82 /* Frameworks */,
 				1291E5502141DA650057DA82 /* Resources */,
-				1825640425BD10E500EC3916 /* Embed Frameworks */,
 				1825641725BD118A00EC3916 /* ShellScript */,
 			);
 			buildRules = (
