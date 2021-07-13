@@ -12,8 +12,6 @@
 		1291E59F2142032E0057DA82 /* Number+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E59E2142032E0057DA82 /* Number+Radians.swift */; };
 		1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A1214211470057DA82 /* JAHubStyleKit.swift */; };
 		1291E5A42142118A0057DA82 /* InfiniteWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */; };
-		12FF218E2141D9E000313955 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FF21842141D9E000313955 /* JAHud.framework */; };
-		12FF21932141D9E000313955 /* JAHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF21922141D9E000313955 /* JAHubTests.swift */; };
 		12FF21952141D9E000313955 /* JAHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		189490E9268412DE00E1F4E5 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189490E8268412DE00E1F4E5 /* PureLayout.framework */; };
 		7009C2BB2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009C2BA2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift */; };
@@ -23,16 +21,6 @@
 		70E7A17121A2B10F00D2551A /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E7A17021A2B10F00D2551A /* HudView.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		12FF218F2141D9E000313955 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 12FF217B2141D9E000313955 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 12FF21832141D9E000313955;
-			remoteInfo = JAHub;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1291E5952141E1840057DA82 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		1291E59E2142032E0057DA82 /* Number+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Radians.swift"; sourceTree = "<group>"; };
@@ -41,7 +29,6 @@
 		12FF21842141D9E000313955 /* JAHud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JAHud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FF21872141D9E000313955 /* JAHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JAHud.h; sourceTree = "<group>"; };
 		12FF21882141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12FF218D2141D9E000313955 /* JAHudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FF21922141D9E000313955 /* JAHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubTests.swift; sourceTree = "<group>"; };
 		12FF21942141D9E000313955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12FF219E2141DA0500313955 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
@@ -59,14 +46,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				189490E9268412DE00E1F4E5 /* PureLayout.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		12FF218A2141D9E000313955 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				12FF218E2141D9E000313955 /* JAHud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				12FF21842141D9E000313955 /* JAHud.framework */,
-				12FF218D2141D9E000313955 /* JAHudTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,24 +154,6 @@
 			productReference = 12FF21842141D9E000313955 /* JAHud.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		12FF218C2141D9E000313955 /* JAHudTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHudTests" */;
-			buildPhases = (
-				12FF21892141D9E000313955 /* Sources */,
-				12FF218A2141D9E000313955 /* Frameworks */,
-				12FF218B2141D9E000313955 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				12FF21902141D9E000313955 /* PBXTargetDependency */,
-			);
-			name = JAHudTests;
-			productName = JAHubTests;
-			productReference = 12FF218D2141D9E000313955 /* JAHudTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,9 +167,6 @@
 					12FF21832141D9E000313955 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1120;
-					};
-					12FF218C2141D9E000313955 = {
-						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
@@ -227,7 +184,6 @@
 			projectRoot = "";
 			targets = (
 				12FF21832141D9E000313955 /* JAHud */,
-				12FF218C2141D9E000313955 /* JAHudTests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				70E7A17121A2B10F00D2551A /* HudView.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		12FF218B2141D9E000313955 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,23 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		12FF21892141D9E000313955 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				12FF21932141D9E000313955 /* JAHubTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		12FF21902141D9E000313955 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 12FF21832141D9E000313955 /* JAHud */;
-			targetProxy = 12FF218F2141D9E000313955 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		12FF21962141D9E000313955 /* Debug */ = {
@@ -470,44 +403,6 @@
 			};
 			name = Release;
 		};
-		12FF219C2141D9E000313955 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YWXH886EY3;
-				INFOPLIST_FILE = JAHubTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHubTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		12FF219D2141D9E000313955 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YWXH886EY3;
-				INFOPLIST_FILE = JAHubTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.kiazen.JAHubTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -525,15 +420,6 @@
 			buildConfigurations = (
 				12FF21992141D9E000313955 /* Debug */,
 				12FF219A2141D9E000313955 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		12FF219B2141D9E000313955 /* Build configuration list for PBXNativeTarget "JAHudTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				12FF219C2141D9E000313955 /* Debug */,
-				12FF219D2141D9E000313955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
