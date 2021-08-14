@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 extension BinaryInteger {
 	var toRadians: CGFloat { return CGFloat(Int(self)) * .pi / 180 }
 	var toDegrees: CGFloat { return CGFloat(Int(self)) * 180 / .pi }
