@@ -39,6 +39,6 @@ Hud.presentProgress(on: self, progress: progress, title: "All your base are belo
 }
 ~~~~
 
-Basically these are called AFTER the animation effects have completed, meaning you don't need to try and "guess" when the Hud's animation has completed, espically helpful when switch states
+Basically these are called AFTER the animation effects have completed, meaning you don't need to try and "guess" when the Hud's animation has completed, espically helpful when switch states.
 
-The API also provides both global and instance configuration support, allowing for an adaptable solution, because there's always that one screen that just wants to be different 🙄
+The API also provides both global and instance configuration support, allowing for an adaptable solution, because there's always that one screen that just wants to be different.
