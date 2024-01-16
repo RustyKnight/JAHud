@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,9 @@
 		1291E5602141DA660057DA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1291E55E2141DA660057DA82 /* LaunchScreen.storyboard */; };
 		1291E56B2141DA660057DA82 /* JAHubExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E56A2141DA660057DA82 /* JAHubExampleTests.swift */; };
 		1291E5762141DA660057DA82 /* JAHubExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */; };
-		1825640225BD10E500EC3916 /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70748AFD214344CD00C04F2C /* JAHud.framework */; };
-		1825640525BD10E800EC3916 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125A56FD2142304700F241FA /* PureLayout.framework */; };
+		70C36C8B2B56310F00464B0F /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 70C36C8A2B56310F00464B0F /* PureLayout */; };
+		70C36C8E2B56315000464B0F /* JAHud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C36C8D2B56315000464B0F /* JAHud.framework */; };
+		70C36C8F2B56315000464B0F /* JAHud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70C36C8D2B56315000464B0F /* JAHud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +36,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		70C36C902B56315000464B0F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				70C36C8F2B56315000464B0F /* JAHud.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		125A56FD2142304700F241FA /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = ../Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		1291E5522141DA650057DA82 /* JAHudExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAHudExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1291E5552141DA650057DA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1291E5572141DA650057DA82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +64,7 @@
 		1291E5712141DA660057DA82 /* JAHudExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JAHudExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1291E5752141DA660057DA82 /* JAHubExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAHubExampleUITests.swift; sourceTree = "<group>"; };
 		1291E5772141DA660057DA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70748AFD214344CD00C04F2C /* JAHud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JAHud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70C36C8D2B56315000464B0F /* JAHud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JAHud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1825640525BD10E800EC3916 /* PureLayout.framework in Frameworks */,
-				1825640225BD10E500EC3916 /* JAHud.framework in Frameworks */,
+				70C36C8B2B56310F00464B0F /* PureLayout in Frameworks */,
+				70C36C8E2B56315000464B0F /* JAHud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,12 +97,11 @@
 		1291E5492141DA650057DA82 = {
 			isa = PBXGroup;
 			children = (
-				70748AFD214344CD00C04F2C /* JAHud.framework */,
-				125A56FD2142304700F241FA /* PureLayout.framework */,
 				1291E5542141DA650057DA82 /* JAHudExample */,
 				1291E5692141DA660057DA82 /* JAHudExampleTests */,
 				1291E5742141DA660057DA82 /* JAHudExampleUITests */,
 				1291E5532141DA650057DA82 /* Products */,
+				70C36C8C2B56315000464B0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +146,14 @@
 			path = JAHudExampleUITests;
 			sourceTree = "<group>";
 		};
+		70C36C8C2B56315000464B0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70C36C8D2B56315000464B0F /* JAHud.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,13 +164,16 @@
 				1291E54E2141DA650057DA82 /* Sources */,
 				1291E54F2141DA650057DA82 /* Frameworks */,
 				1291E5502141DA650057DA82 /* Resources */,
-				1825641725BD118A00EC3916 /* ShellScript */,
+				70C36C902B56315000464B0F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = JAHudExample;
+			packageProductDependencies = (
+				70C36C8A2B56310F00464B0F /* PureLayout */,
+			);
 			productName = JAHubExample;
 			productReference = 1291E5522141DA650057DA82 /* JAHudExample.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 1291E5492141DA650057DA82;
+			packageReferences = (
+				70C36C892B56310F00464B0F /* XCRemoteSwiftPackageReference "PureLayout" */,
+			);
 			productRefGroup = 1291E5532141DA650057DA82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,28 +286,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1825641725BD118A00EC3916 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"$(SRCROOT)/../Carthage/xcfilelists/JAHUD-inputPaths.xcfilelist",
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-				"$(SRCROOT)/../Carthage/xcfilelists/JAHUD-outputPaths.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1291E54E2141DA650057DA82 /* Sources */ = {
@@ -467,7 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YWXH886EY3;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/JAHudExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YWXH886EY3;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/JAHudExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -623,6 +628,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70C36C892B56310F00464B0F /* XCRemoteSwiftPackageReference "PureLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PureLayout/PureLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70C36C8A2B56310F00464B0F /* PureLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70C36C892B56310F00464B0F /* XCRemoteSwiftPackageReference "PureLayout" */;
+			productName = PureLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1291E54A2141DA650057DA82 /* Project object */;
 }

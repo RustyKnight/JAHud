@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,11 +13,11 @@
 		1291E5A2214211470057DA82 /* JAHubStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A1214211470057DA82 /* JAHubStyleKit.swift */; };
 		1291E5A42142118A0057DA82 /* InfiniteWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291E5A32142118A0057DA82 /* InfiniteWaitIndicatorView.swift */; };
 		12FF21952141D9E000313955 /* JAHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FF21872141D9E000313955 /* JAHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		189490E9268412DE00E1F4E5 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189490E8268412DE00E1F4E5 /* PureLayout.framework */; };
 		7009C2BB2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009C2BA2143CBC400E9E8D8 /* MaterialWaitIndicatorView.swift */; };
 		7009C2BD2143D0EB00E9E8D8 /* AnimatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009C2BC2143D0EB00E9E8D8 /* AnimatableView.swift */; };
 		70748B0121436DCD00C04F2C /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0021436DCD00C04F2C /* Hud.swift */; };
 		70748B0321436FBF00C04F2C /* HudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70748B0221436FBF00C04F2C /* HudViewController.swift */; };
+		70B83D642B56306000C0EA9F /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 70B83D632B56306000C0EA9F /* PureLayout */; };
 		70E7A17121A2B10F00D2551A /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E7A17021A2B10F00D2551A /* HudView.xib */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				189490E9268412DE00E1F4E5 /* PureLayout.framework in Frameworks */,
+				70B83D642B56306000C0EA9F /* PureLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +150,9 @@
 			dependencies = (
 			);
 			name = JAHud;
+			packageProductDependencies = (
+				70B83D632B56306000C0EA9F /* PureLayout */,
+			);
 			productName = JAHub;
 			productReference = 12FF21842141D9E000313955 /* JAHud.framework */;
 			productType = "com.apple.product-type.framework";
@@ -179,6 +182,9 @@
 				Base,
 			);
 			mainGroup = 12FF217A2141D9E000313955;
+			packageReferences = (
+				70B83D622B56306000C0EA9F /* XCRemoteSwiftPackageReference "PureLayout" */,
+			);
 			productRefGroup = 12FF21852141D9E000313955 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,6 +431,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70B83D622B56306000C0EA9F /* XCRemoteSwiftPackageReference "PureLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PureLayout/PureLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70B83D632B56306000C0EA9F /* PureLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70B83D622B56306000C0EA9F /* XCRemoteSwiftPackageReference "PureLayout" */;
+			productName = PureLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 12FF217B2141D9E000313955 /* Project object */;
 }
