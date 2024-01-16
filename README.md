@@ -43,4 +43,4 @@ Basically these are called AFTER the animation effects have completed, meaning y
 
 The API also provides both global and instance configuration support, allowing for an adaptable solution, because there's always that one screen that just wants to be different.
 
-![](Snapshots/Snapshot.gif)
+![](SnapShots/Snapshot.gif)
